@@ -1,0 +1,198 @@
+---
+source: src/scraper.rs
+expression: transcript
+---
+{
+  "segments": [
+    {
+      "start_secs": 4.333,
+      "duration_secs": 2.1,
+      "value": "(\"Just A Girl\" - No Doubt)"
+    },
+    {
+      "start_secs": 8.6,
+      "duration_secs": 3.9,
+      "value": "♪ Take this pink ribbon\noff my eyes ♪"
+    },
+    {
+      "start_secs": 12.533,
+      "duration_secs": 4.567,
+      "value": "♪ I'm exposed and\nit's no big surprise ♪"
+    },
+    {
+      "start_secs": 17.133,
+      "duration_secs": 4.233,
+      "value": "♪ Don't you think I know\nexactly where I stand? ♪"
+    },
+    {
+      "start_secs": 21.4,
+      "duration_secs": 4.766,
+      "value": "♪ This world is forcing me\nto hold your hand ♪"
+    },
+    {
+      "start_secs": 26.2,
+      "duration_secs": 4.1,
+      "value": "♪ 'Cause I'm just a girl,\noh, little old me ♪"
+    },
+    {
+      "start_secs": 30.333,
+      "duration_secs": 4.3,
+      "value": "♪ Well, don't let me\nout of your sight ♪"
+    },
+    {
+      "start_secs": 34.666,
+      "duration_secs": 4.634,
+      "value": "♪ Oh, I'm just a girl,\nall pretty and petite ♪"
+    },
+    {
+      "start_secs": 39.333,
+      "duration_secs": 4.967,
+      "value": "♪ So don't let me\nhave any rights ♪"
+    },
+    {
+      "start_secs": 44.333,
+      "duration_secs": 5.0,
+      "value": "♪ Oh, I've had it up to here ♪"
+    },
+    {
+      "start_secs": 53.266,
+      "duration_secs": 3.334,
+      "value": "♪ The moment that\nI step outside ♪"
+    },
+    {
+      "start_secs": 56.633,
+      "duration_secs": 4.433,
+      "value": "♪ So many reasons\nfor me to run and hide ♪"
+    },
+    {
+      "start_secs": 61.1,
+      "duration_secs": 4.3,
+      "value": "♪ I can't do the little\nthings I hold so dear ♪"
+    },
+    {
+      "start_secs": 65.433,
+      "duration_secs": 5.133,
+      "value": "♪ 'Cause it's all those\nlittle things that I fear♪"
+    },
+    {
+      "start_secs": 70.6,
+      "duration_secs": 4.1,
+      "value": "♪ 'Cause I'm just a girl,\nI'd rather not be ♪"
+    },
+    {
+      "start_secs": 74.733,
+      "duration_secs": 4.667,
+      "value": "♪ 'Cause they won't\nLet me drive late at night ♪"
+    },
+    {
+      "start_secs": 79.433,
+      "duration_secs": 4.067,
+      "value": "♪ Oh, I'm just a girl,\nguess I'm some kind of freak ♪"
+    },
+    {
+      "start_secs": 83.533,
+      "duration_secs": 4.9,
+      "value": "♪ 'Cause they all sit and\nstare with their eyes ♪"
+    },
+    {
+      "start_secs": 88.466,
+      "duration_secs": 1.834,
+      "value": "♪ Oh, I'm just a girl ♪"
+    },
+    {
+      "start_secs": 90.333,
+      "duration_secs": 2.167,
+      "value": "♪ Take a good look at me ♪"
+    },
+    {
+      "start_secs": 92.533,
+      "duration_secs": 4.8,
+      "value": "♪ Just your typical prototype ♪"
+    },
+    {
+      "start_secs": 97.366,
+      "duration_secs": 5.9,
+      "value": "♪ Oh, I've had it up to here ♪"
+    },
+    {
+      "start_secs": 119.666,
+      "duration_secs": 5.667,
+      "value": "Oh, am I making myself clear? ♪"
+    },
+    {
+      "start_secs": 128.666,
+      "duration_secs": 1.9,
+      "value": "♪ I'm just a girl ♪"
+    },
+    {
+      "start_secs": 133.3,
+      "duration_secs": 3.9,
+      "value": "♪ I'm just a girl in the world ♪"
+    },
+    {
+      "start_secs": 137.233,
+      "duration_secs": 4.4,
+      "value": "♪ That's all that\nyou'll let me be ♪"
+    },
+    {
+      "start_secs": 141.666,
+      "duration_secs": 3.934,
+      "value": "♪ Oh, I'm just girl,\nliving in captivity ♪"
+    },
+    {
+      "start_secs": 145.633,
+      "duration_secs": 4.8,
+      "value": "♪ Your rule of thumb\nmakes me worrisome ♪"
+    },
+    {
+      "start_secs": 150.466,
+      "duration_secs": 4.034,
+      "value": "♪ Oh, I'm just a girl,\nwhat's my destiny? ♪"
+    },
+    {
+      "start_secs": 154.533,
+      "duration_secs": 5.0,
+      "value": "♪ What I've succumbed to\nis making me numb ♪"
+    },
+    {
+      "start_secs": 159.566,
+      "duration_secs": 3.834,
+      "value": "♪ Oh, I'm just a girl,\nmy apologies ♪"
+    },
+    {
+      "start_secs": 163.433,
+      "duration_secs": 4.9,
+      "value": "♪ What I've become\nis so burdensome ♪"
+    },
+    {
+      "start_secs": 168.366,
+      "duration_secs": 4.234,
+      "value": "Oh, I'm just a girl, lucky me ♪"
+    },
+    {
+      "start_secs": 172.633,
+      "duration_secs": 4.9,
+      "value": "♪ Twiddle-dum,\nthere's no comparison ♪"
+    },
+    {
+      "start_secs": 177.566,
+      "duration_secs": 4.634,
+      "value": "♪ Oh, I've had it up to ♪"
+    },
+    {
+      "start_secs": 182.233,
+      "duration_secs": 4.267,
+      "value": "♪ Oh, I've had it up to ♪"
+    },
+    {
+      "start_secs": 186.533,
+      "duration_secs": 2.733,
+      "value": "♪ Oh ♪"
+    },
+    {
+      "start_secs": 189.3,
+      "duration_secs": 5.466,
+      "value": "♪ I've had it up to here ♪"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
 match_arm_leading_pipes = "Preserve"
 tab_spaces = 2
 use_small_heuristics = "Max"
+max_width = 120

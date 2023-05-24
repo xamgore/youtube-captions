@@ -1,0 +1,4653 @@
+---
+source: src/scraper.rs
+expression: content
+---
+{
+  "segments": [
+    {
+      "start_secs": 6.02,
+      "duration_secs": 8.56,
+      "value": "uh yeah uh so I'm going to talk about"
+    },
+    {
+      "start_secs": 10.8,
+      "duration_secs": 7.14,
+      "value": "profiling code and rust and my name is"
+    },
+    {
+      "start_secs": 14.58,
+      "duration_secs": 6.24,
+      "value": "really Vitali bragilevsky and I work at"
+    },
+    {
+      "start_secs": 17.94,
+      "duration_secs": 6.9,
+      "value": "jetbrains and we are just brains we love"
+    },
+    {
+      "start_secs": 20.82,
+      "duration_secs": 6.36,
+      "value": "Frost very much and I will use Sea Lion"
+    },
+    {
+      "start_secs": 24.84,
+      "duration_secs": 6.0,
+      "value": "for doing this presentation it's our"
+    },
+    {
+      "start_secs": 27.18,
+      "duration_secs": 5.46,
+      "value": "main IDE for writing rust code but in"
+    },
+    {
+      "start_secs": 30.84,
+      "duration_secs": 4.559,
+      "value": "fact the things that I'm going to"
+    },
+    {
+      "start_secs": 32.64,
+      "duration_secs": 6.12,
+      "value": "discuss here they are a little bit more"
+    },
+    {
+      "start_secs": 35.399,
+      "duration_secs": 5.301,
+      "value": "General than doing rust with our rust"
+    },
+    {
+      "start_secs": 38.76,
+      "duration_secs": 6.24,
+      "value": "plug and insulin"
+    },
+    {
+      "start_secs": 40.7,
+      "duration_secs": 7.3,
+      "value": "and Stefan said a very important thing"
+    },
+    {
+      "start_secs": 45.0,
+      "duration_secs": 5.82,
+      "value": "that he he doesn't do profiling"
+    },
+    {
+      "start_secs": 48.0,
+      "duration_secs": 6.059,
+      "value": "and I would like to start with the"
+    },
+    {
+      "start_secs": 50.82,
+      "duration_secs": 6.899,
+      "value": "results of some survey which was held"
+    },
+    {
+      "start_secs": 54.059,
+      "duration_secs": 5.061,
+      "value": "like a year ago but this survey is"
+    },
+    {
+      "start_secs": 57.719,
+      "duration_secs": 4.801,
+      "value": "actually"
+    },
+    {
+      "start_secs": 59.12,
+      "duration_secs": 7.359,
+      "value": "very very disappointing"
+    },
+    {
+      "start_secs": 62.52,
+      "duration_secs": 5.76,
+      "value": "so we've asked what profiling tools do"
+    },
+    {
+      "start_secs": 66.479,
+      "duration_secs": 5.421,
+      "value": "you use for rust"
+    },
+    {
+      "start_secs": 68.28,
+      "duration_secs": 8.339,
+      "value": "and it turns out that"
+    },
+    {
+      "start_secs": 71.9,
+      "duration_secs": 5.68,
+      "value": "84 percent don't use profiling tools at"
+    },
+    {
+      "start_secs": 76.619,
+      "duration_secs": 4.981,
+      "value": "all"
+    },
+    {
+      "start_secs": 77.58,
+      "duration_secs": 6.539,
+      "value": "and this is very very disappointing and"
+    },
+    {
+      "start_secs": 81.6,
+      "duration_secs": 4.08,
+      "value": "in this talk I would like to discuss"
+    },
+    {
+      "start_secs": 84.119,
+      "duration_secs": 4.441,
+      "value": "this situation"
+    },
+    {
+      "start_secs": 85.68,
+      "duration_secs": 7.14,
+      "value": "why is it like that"
+    },
+    {
+      "start_secs": 88.56,
+      "duration_secs": 6.9,
+      "value": "so how can we do better do we really"
+    },
+    {
+      "start_secs": 92.82,
+      "duration_secs": 4.28,
+      "value": "need that profiling so this is what I'm"
+    },
+    {
+      "start_secs": 95.46,
+      "duration_secs": 4.199,
+      "value": "going to discuss"
+    },
+    {
+      "start_secs": 97.1,
+      "duration_secs": 5.58,
+      "value": "it's uh"
+    },
+    {
+      "start_secs": 99.659,
+      "duration_secs": 6.841,
+      "value": "actually a very simple talk"
+    },
+    {
+      "start_secs": 102.68,
+      "duration_secs": 6.04,
+      "value": "so I will give you several advices but"
+    },
+    {
+      "start_secs": 106.5,
+      "duration_secs": 5.22,
+      "value": "they're very simple and you can apply"
+    },
+    {
+      "start_secs": 108.72,
+      "duration_secs": 6.179,
+      "value": "them and your code will be better and"
+    },
+    {
+      "start_secs": 111.72,
+      "duration_secs": 4.439,
+      "value": "you don't have to work hard to do all"
+    },
+    {
+      "start_secs": 114.899,
+      "duration_secs": 2.821,
+      "value": "that stuff"
+    },
+    {
+      "start_secs": 116.159,
+      "duration_secs": 4.201,
+      "value": "so but"
+    },
+    {
+      "start_secs": 117.72,
+      "duration_secs": 5.219,
+      "value": "profiling tools uh"
+    },
+    {
+      "start_secs": 120.36,
+      "duration_secs": 3.96,
+      "value": "well not very popular among Ras"
+    },
+    {
+      "start_secs": 122.939,
+      "duration_secs": 6.3,
+      "value": "Developers"
+    },
+    {
+      "start_secs": 124.32,
+      "duration_secs": 6.54,
+      "value": "so let's discuss why so maybe maybe all"
+    },
+    {
+      "start_secs": 129.239,
+      "duration_secs": 4.021,
+      "value": "those people they just don't know what"
+    },
+    {
+      "start_secs": 130.86,
+      "duration_secs": 5.879,
+      "value": "is profiling so let's start with"
+    },
+    {
+      "start_secs": 133.26,
+      "duration_secs": 6.78,
+      "value": "discussing uh definition so if you look"
+    },
+    {
+      "start_secs": 136.739,
+      "duration_secs": 7.08,
+      "value": "at Wikipedia you will see a definition"
+    },
+    {
+      "start_secs": 140.04,
+      "duration_secs": 6.779,
+      "value": "of profiling so Wikipedia says that and"
+    },
+    {
+      "start_secs": 143.819,
+      "duration_secs": 5.701,
+      "value": "I will show you this definition part by"
+    },
+    {
+      "start_secs": 146.819,
+      "duration_secs": 4.621,
+      "value": "part because every word here is very"
+    },
+    {
+      "start_secs": 149.52,
+      "duration_secs": 4.02,
+      "value": "important so we have to understand it"
+    },
+    {
+      "start_secs": 151.44,
+      "duration_secs": 5.76,
+      "value": "clearly"
+    },
+    {
+      "start_secs": 153.54,
+      "duration_secs": 6.6,
+      "value": "so Wikipedia starts with this disclaimer"
+    },
+    {
+      "start_secs": 157.2,
+      "duration_secs": 5.88,
+      "value": "so we're going to discuss profiling in"
+    },
+    {
+      "start_secs": 160.14,
+      "duration_secs": 6.12,
+      "value": "software engineering because well in"
+    },
+    {
+      "start_secs": 163.08,
+      "duration_secs": 5.939,
+      "value": "real life we have some other meaning of"
+    },
+    {
+      "start_secs": 166.26,
+      "duration_secs": 4.92,
+      "value": "profiling but in software engineering"
+    },
+    {
+      "start_secs": 169.019,
+      "duration_secs": 6.72,
+      "value": "it's a little bit special"
+    },
+    {
+      "start_secs": 171.18,
+      "duration_secs": 6.54,
+      "value": "uh first profiling is a form of dynamic"
+    },
+    {
+      "start_secs": 175.739,
+      "duration_secs": 4.08,
+      "value": "program analysis"
+    },
+    {
+      "start_secs": 177.72,
+      "duration_secs": 4.2,
+      "value": "you may know that there is static"
+    },
+    {
+      "start_secs": 179.819,
+      "duration_secs": 5.28,
+      "value": "program analysis and dynamic program"
+    },
+    {
+      "start_secs": 181.92,
+      "duration_secs": 7.14,
+      "value": "analysis and static is done during"
+    },
+    {
+      "start_secs": 185.099,
+      "duration_secs": 5.28,
+      "value": "compilation and dynamic is what is what"
+    },
+    {
+      "start_secs": 189.06,
+      "duration_secs": 4.98,
+      "value": "we do during"
+    },
+    {
+      "start_secs": 190.379,
+      "duration_secs": 7.14,
+      "value": "runtime so we run our program and we do"
+    },
+    {
+      "start_secs": 194.04,
+      "duration_secs": 6.18,
+      "value": "some analysis so we analyze some program"
+    },
+    {
+      "start_secs": 197.519,
+      "duration_secs": 4.14,
+      "value": "Behavior at runtime so this is what is"
+    },
+    {
+      "start_secs": 200.22,
+      "duration_secs": 4.739,
+      "value": "profiling"
+    },
+    {
+      "start_secs": 201.659,
+      "duration_secs": 7.141,
+      "value": "then this Dynamic analysis measures"
+    },
+    {
+      "start_secs": 204.959,
+      "duration_secs": 7.56,
+      "value": "something this is also important so"
+    },
+    {
+      "start_secs": 208.8,
+      "duration_secs": 7.799,
+      "value": "program analysis can do checks for"
+    },
+    {
+      "start_secs": 212.519,
+      "duration_secs": 7.021,
+      "value": "example in Python they have Dynamic type"
+    },
+    {
+      "start_secs": 216.599,
+      "duration_secs": 7.401,
+      "value": "checking so they check types at runtime"
+    },
+    {
+      "start_secs": 219.54,
+      "duration_secs": 8.46,
+      "value": "so it's not measures measurement but"
+    },
+    {
+      "start_secs": 224.0,
+      "duration_secs": 7.0,
+      "value": "profiling measures so we want to find"
+    },
+    {
+      "start_secs": 228.0,
+      "duration_secs": 4.319,
+      "value": "out some characteristics of that runtime"
+    },
+    {
+      "start_secs": 231.0,
+      "duration_secs": 4.98,
+      "value": "Behavior"
+    },
+    {
+      "start_secs": 232.319,
+      "duration_secs": 5.521,
+      "value": "so what are we going to measure"
+    },
+    {
+      "start_secs": 235.98,
+      "duration_secs": 5.46,
+      "value": "for example"
+    },
+    {
+      "start_secs": 237.84,
+      "duration_secs": 7.619,
+      "value": "we measure space or memory usage how"
+    },
+    {
+      "start_secs": 241.44,
+      "duration_secs": 7.2,
+      "value": "much memory is used by our program"
+    },
+    {
+      "start_secs": 245.459,
+      "duration_secs": 6.121,
+      "value": "then time complexity"
+    },
+    {
+      "start_secs": 248.64,
+      "duration_secs": 5.819,
+      "value": "of a program so how much time does it"
+    },
+    {
+      "start_secs": 251.58,
+      "duration_secs": 5.46,
+      "value": "take to run that program"
+    },
+    {
+      "start_secs": 254.459,
+      "duration_secs": 5.821,
+      "value": "the usage of particular instructions"
+    },
+    {
+      "start_secs": 257.04,
+      "duration_secs": 5.46,
+      "value": "this is also important how many times we"
+    },
+    {
+      "start_secs": 260.28,
+      "duration_secs": 6.0,
+      "value": "read this and that"
+    },
+    {
+      "start_secs": 262.5,
+      "duration_secs": 5.82,
+      "value": "and finally the frequency and duration"
+    },
+    {
+      "start_secs": 266.28,
+      "duration_secs": 5.22,
+      "value": "of function calls"
+    },
+    {
+      "start_secs": 268.32,
+      "duration_secs": 6.48,
+      "value": "so this is what Wikipedia says so we"
+    },
+    {
+      "start_secs": 271.5,
+      "duration_secs": 7.02,
+      "value": "analyze runtime behavior of our programs"
+    },
+    {
+      "start_secs": 274.8,
+      "duration_secs": 5.459,
+      "value": "in terms of memory usage time usage of"
+    },
+    {
+      "start_secs": 278.52,
+      "duration_secs": 4.619,
+      "value": "instructions"
+    },
+    {
+      "start_secs": 280.259,
+      "duration_secs": 6.241,
+      "value": "and some characteristics of function"
+    },
+    {
+      "start_secs": 283.139,
+      "duration_secs": 4.62,
+      "value": "false so this is profiling"
+    },
+    {
+      "start_secs": 286.5,
+      "duration_secs": 3.54,
+      "value": "no"
+    },
+    {
+      "start_secs": 287.759,
+      "duration_secs": 4.681,
+      "value": "why"
+    },
+    {
+      "start_secs": 290.04,
+      "duration_secs": 6.0,
+      "value": "we don't profile"
+    },
+    {
+      "start_secs": 292.44,
+      "duration_secs": 6.539,
+      "value": "and Stefan doesn't profile and he as he"
+    },
+    {
+      "start_secs": 296.04,
+      "duration_secs": 6.96,
+      "value": "confessed and all those away"
+    },
+    {
+      "start_secs": 298.979,
+      "duration_secs": 5.581,
+      "value": "participants don't profile why"
+    },
+    {
+      "start_secs": 303.0,
+      "duration_secs": 4.8,
+      "value": "all right uh"
+    },
+    {
+      "start_secs": 304.56,
+      "duration_secs": 5.46,
+      "value": "so why"
+    },
+    {
+      "start_secs": 307.8,
+      "duration_secs": 6.48,
+      "value": "we can think about several reasons"
+    },
+    {
+      "start_secs": 310.02,
+      "duration_secs": 7.619,
+      "value": "actually so reason one it's really hot"
+    },
+    {
+      "start_secs": 314.28,
+      "duration_secs": 6.08,
+      "value": "or people say that it's hot maybe that's"
+    },
+    {
+      "start_secs": 317.639,
+      "duration_secs": 5.521,
+      "value": "not the case maybe the"
+    },
+    {
+      "start_secs": 320.36,
+      "duration_secs": 4.48,
+      "value": "sometimes it's easy but we don't know"
+    },
+    {
+      "start_secs": 323.16,
+      "duration_secs": 4.86,
+      "value": "about that"
+    },
+    {
+      "start_secs": 324.84,
+      "duration_secs": 5.16,
+      "value": "and reason two is that it's not"
+    },
+    {
+      "start_secs": 328.02,
+      "duration_secs": 4.92,
+      "value": "necessary at this time so people say"
+    },
+    {
+      "start_secs": 330.0,
+      "duration_secs": 4.08,
+      "value": "well we don't need to profile it right"
+    },
+    {
+      "start_secs": 332.94,
+      "duration_secs": 4.56,
+      "value": "now"
+    },
+    {
+      "start_secs": 334.08,
+      "duration_secs": 7.5,
+      "value": "because it's not a problem so our"
+    },
+    {
+      "start_secs": 337.5,
+      "duration_secs": 6.479,
+      "value": "programs are efficient enough so it's"
+    },
+    {
+      "start_secs": 341.58,
+      "duration_secs": 4.619,
+      "value": "just not necessary to do that now"
+    },
+    {
+      "start_secs": 343.979,
+      "duration_secs": 5.521,
+      "value": "and then they also say"
+    },
+    {
+      "start_secs": 346.199,
+      "duration_secs": 6.621,
+      "value": "so there are some very very smart talks"
+    },
+    {
+      "start_secs": 349.5,
+      "duration_secs": 8.24,
+      "value": "in our team and in that team"
+    },
+    {
+      "start_secs": 352.82,
+      "duration_secs": 8.08,
+      "value": "so they'll do that when it's necessary"
+    },
+    {
+      "start_secs": 357.74,
+      "duration_secs": 5.92,
+      "value": "so like we have a team of 10 people and"
+    },
+    {
+      "start_secs": 360.9,
+      "duration_secs": 4.38,
+      "value": "one of them is just doing profiling all"
+    },
+    {
+      "start_secs": 363.66,
+      "duration_secs": 4.86,
+      "value": "the time"
+    },
+    {
+      "start_secs": 365.28,
+      "duration_secs": 6.479,
+      "value": "but if we postpone that profiling then"
+    },
+    {
+      "start_secs": 368.52,
+      "duration_secs": 6.899,
+      "value": "just imagine how many things should be"
+    },
+    {
+      "start_secs": 371.759,
+      "duration_secs": 5.94,
+      "value": "fixed if it's like we we develop our"
+    },
+    {
+      "start_secs": 375.419,
+      "duration_secs": 5.701,
+      "value": "program for a year and then we just"
+    },
+    {
+      "start_secs": 377.699,
+      "duration_secs": 5.701,
+      "value": "start profiling isn't that a big problem"
+    },
+    {
+      "start_secs": 381.12,
+      "duration_secs": 5.22,
+      "value": "here uh"
+    },
+    {
+      "start_secs": 383.4,
+      "duration_secs": 5.28,
+      "value": "and then there is also another reason"
+    },
+    {
+      "start_secs": 386.34,
+      "duration_secs": 5.82,
+      "value": "but some people say that they don't want"
+    },
+    {
+      "start_secs": 388.68,
+      "duration_secs": 6.66,
+      "value": "to do premature optimization and you may"
+    },
+    {
+      "start_secs": 392.16,
+      "duration_secs": 4.8,
+      "value": "know that this is a famous quote from"
+    },
+    {
+      "start_secs": 395.34,
+      "duration_secs": 4.56,
+      "value": "Donald North"
+    },
+    {
+      "start_secs": 396.96,
+      "duration_secs": 4.56,
+      "value": "that primates optimization is the root"
+    },
+    {
+      "start_secs": 399.9,
+      "duration_secs": 4.079,
+      "value": "of all evil"
+    },
+    {
+      "start_secs": 401.52,
+      "duration_secs": 6.6,
+      "value": "so you may hear about that so here's"
+    },
+    {
+      "start_secs": 403.979,
+      "duration_secs": 7.261,
+      "value": "download note and this is this uh quote"
+    },
+    {
+      "start_secs": 408.12,
+      "duration_secs": 6.9,
+      "value": "so premature optimization is the root of"
+    },
+    {
+      "start_secs": 411.24,
+      "duration_secs": 8.28,
+      "value": "all evil but as it is usually the case"
+    },
+    {
+      "start_secs": 415.02,
+      "duration_secs": 7.739,
+      "value": "with some funny quotes they"
+    },
+    {
+      "start_secs": 419.52,
+      "duration_secs": 5.88,
+      "value": "the real meaning of that quote is a"
+    },
+    {
+      "start_secs": 422.759,
+      "duration_secs": 6.06,
+      "value": "little bit different"
+    },
+    {
+      "start_secs": 425.4,
+      "duration_secs": 7.68,
+      "value": "because if we read it full quote then"
+    },
+    {
+      "start_secs": 428.819,
+      "duration_secs": 7.621,
+      "value": "we'll see that Donald doesn't ban"
+    },
+    {
+      "start_secs": 433.08,
+      "duration_secs": 8.76,
+      "value": "premage optimization so what he actually"
+    },
+    {
+      "start_secs": 436.44,
+      "duration_secs": 8.099,
+      "value": "says or he wrote in one of his papers"
+    },
+    {
+      "start_secs": 441.84,
+      "duration_secs": 5.1,
+      "value": "so he wrote that the real problem is"
+    },
+    {
+      "start_secs": 444.539,
+      "duration_secs": 5.22,
+      "value": "that programmers have spent far too much"
+    },
+    {
+      "start_secs": 446.94,
+      "duration_secs": 7.94,
+      "value": "time worrying about efficiency in the"
+    },
+    {
+      "start_secs": 449.759,
+      "duration_secs": 5.121,
+      "value": "wrong places and at their own times"
+    },
+    {
+      "start_secs": 455.46,
+      "duration_secs": 6.12,
+      "value": "and then this premature optimization is"
+    },
+    {
+      "start_secs": 458.58,
+      "duration_secs": 6.92,
+      "value": "the root of all evil so premature"
+    },
+    {
+      "start_secs": 461.58,
+      "duration_secs": 9.54,
+      "value": "doesn't mean that we do it too early"
+    },
+    {
+      "start_secs": 465.5,
+      "duration_secs": 8.979,
+      "value": "premature means in in his quote that we"
+    },
+    {
+      "start_secs": 471.12,
+      "duration_secs": 6.299,
+      "value": "don't do profiling first"
+    },
+    {
+      "start_secs": 474.479,
+      "duration_secs": 4.681,
+      "value": "so it's not about banning profiling"
+    },
+    {
+      "start_secs": 477.419,
+      "duration_secs": 4.381,
+      "value": "Banning"
+    },
+    {
+      "start_secs": 479.16,
+      "duration_secs": 4.56,
+      "value": "like doing something to optimize our"
+    },
+    {
+      "start_secs": 481.8,
+      "duration_secs": 5.16,
+      "value": "program no"
+    },
+    {
+      "start_secs": 483.72,
+      "duration_secs": 6.36,
+      "value": "Donald knuth suggests the real path so"
+    },
+    {
+      "start_secs": 486.96,
+      "duration_secs": 4.32,
+      "value": "first we profile our programs and second"
+    },
+    {
+      "start_secs": 490.08,
+      "duration_secs": 5.339,
+      "value": "we"
+    },
+    {
+      "start_secs": 491.28,
+      "duration_secs": 6.419,
+      "value": "uh do optimization and this is what"
+    },
+    {
+      "start_secs": 495.419,
+      "duration_secs": 5.761,
+      "value": "we're going to discuss in this talk so"
+    },
+    {
+      "start_secs": 497.699,
+      "duration_secs": 6.12,
+      "value": "how to profile how do I find which"
+    },
+    {
+      "start_secs": 501.18,
+      "duration_secs": 3.959,
+      "value": "places are right places to do"
+    },
+    {
+      "start_secs": 503.819,
+      "duration_secs": 4.5,
+      "value": "optimization"
+    },
+    {
+      "start_secs": 505.139,
+      "duration_secs": 4.62,
+      "value": "so that's what we're going to do here"
+    },
+    {
+      "start_secs": 508.319,
+      "duration_secs": 4.4,
+      "value": "all right"
+    },
+    {
+      "start_secs": 509.759,
+      "duration_secs": 7.261,
+      "value": "uh to"
+    },
+    {
+      "start_secs": 512.719,
+      "duration_secs": 8.861,
+      "value": "present some ways of profiling uh I will"
+    },
+    {
+      "start_secs": 517.02,
+      "duration_secs": 7.5,
+      "value": "use some small project so I solved lead"
+    },
+    {
+      "start_secs": 521.58,
+      "duration_secs": 6.9,
+      "value": "code problem number 22 I will just"
+    },
+    {
+      "start_secs": 524.52,
+      "duration_secs": 7.499,
+      "value": "describe it in a second and using"
+    },
+    {
+      "start_secs": 528.48,
+      "duration_secs": 6.419,
+      "value": "several methods and then I just use this"
+    },
+    {
+      "start_secs": 532.019,
+      "duration_secs": 4.32,
+      "value": "project as an example for doing"
+    },
+    {
+      "start_secs": 534.899,
+      "duration_secs": 4.101,
+      "value": "profiling"
+    },
+    {
+      "start_secs": 536.339,
+      "duration_secs": 5.18,
+      "value": "so this problem is about generating"
+    },
+    {
+      "start_secs": 539.0,
+      "duration_secs": 6.399,
+      "value": "well-formed parenthesis combinations"
+    },
+    {
+      "start_secs": 541.519,
+      "duration_secs": 6.701,
+      "value": "like we have opening parenthesis closing"
+    },
+    {
+      "start_secs": 545.399,
+      "duration_secs": 6.721,
+      "value": "parenthesis and we put them together"
+    },
+    {
+      "start_secs": 548.22,
+      "duration_secs": 6.72,
+      "value": "just just to make it well formed so for"
+    },
+    {
+      "start_secs": 552.12,
+      "duration_secs": 5.76,
+      "value": "example if we have three pairs of"
+    },
+    {
+      "start_secs": 554.94,
+      "duration_secs": 5.399,
+      "value": "parentheses then here you can see the"
+    },
+    {
+      "start_secs": 557.88,
+      "duration_secs": 6.959,
+      "value": "the output we have five"
+    },
+    {
+      "start_secs": 560.339,
+      "duration_secs": 7.201,
+      "value": "possible well-formed combinations here"
+    },
+    {
+      "start_secs": 564.839,
+      "duration_secs": 5.401,
+      "value": "uh and in my project I have three"
+    },
+    {
+      "start_secs": 567.54,
+      "duration_secs": 5.04,
+      "value": "implementations one is breadth first"
+    },
+    {
+      "start_secs": 570.24,
+      "duration_secs": 5.279,
+      "value": "search second one is depth first search"
+    },
+    {
+      "start_secs": 572.58,
+      "duration_secs": 4.98,
+      "value": "and sub combinations the there is an"
+    },
+    {
+      "start_secs": 575.519,
+      "duration_secs": 4.621,
+      "value": "information about that in the readme"
+    },
+    {
+      "start_secs": 577.56,
+      "duration_secs": 4.56,
+      "value": "file if you look there you can see"
+    },
+    {
+      "start_secs": 580.14,
+      "duration_secs": 5.04,
+      "value": "what's going on"
+    },
+    {
+      "start_secs": 582.12,
+      "duration_secs": 5.46,
+      "value": "all right so uh this is linked to the"
+    },
+    {
+      "start_secs": 585.18,
+      "duration_secs": 5.94,
+      "value": "GitHub and"
+    },
+    {
+      "start_secs": 587.58,
+      "duration_secs": 7.28,
+      "value": "we'll explore this project right now and"
+    },
+    {
+      "start_secs": 591.12,
+      "duration_secs": 3.74,
+      "value": "we'll see what can we do about that"
+    },
+    {
+      "start_secs": 594.899,
+      "duration_secs": 7.021,
+      "value": "okay so if you are interested here is"
+    },
+    {
+      "start_secs": 598.26,
+      "duration_secs": 6.84,
+      "value": "the core chord and link to this project"
+    },
+    {
+      "start_secs": 601.92,
+      "duration_secs": 7.82,
+      "value": "so let's let's see it and remember I'm"
+    },
+    {
+      "start_secs": 605.1,
+      "duration_secs": 7.799,
+      "value": "in silai so I will use everything here"
+    },
+    {
+      "start_secs": 609.74,
+      "duration_secs": 4.44,
+      "value": "so to to to present this project so"
+    },
+    {
+      "start_secs": 612.899,
+      "duration_secs": 4.981,
+      "value": "first"
+    },
+    {
+      "start_secs": 614.18,
+      "duration_secs": 6.88,
+      "value": "let's look at the project structure"
+    },
+    {
+      "start_secs": 617.88,
+      "duration_secs": 5.579,
+      "value": "so of course we have some source files"
+    },
+    {
+      "start_secs": 621.06,
+      "duration_secs": 6.36,
+      "value": "here and I have three implementations"
+    },
+    {
+      "start_secs": 623.459,
+      "duration_secs": 6.961,
+      "value": "they are all uh I put them in separate"
+    },
+    {
+      "start_secs": 627.42,
+      "duration_secs": 5.9,
+      "value": "modules we have main file we have"
+    },
+    {
+      "start_secs": 630.42,
+      "duration_secs": 7.44,
+      "value": "Library so just as usual Library create"
+    },
+    {
+      "start_secs": 633.32,
+      "duration_secs": 7.24,
+      "value": "binary crate and all those"
+    },
+    {
+      "start_secs": 637.86,
+      "duration_secs": 4.919,
+      "value": "implementations aren't there so we also"
+    },
+    {
+      "start_secs": 640.56,
+      "duration_secs": 4.56,
+      "value": "have have benchmarks here we'll talk"
+    },
+    {
+      "start_secs": 642.779,
+      "duration_secs": 5.521,
+      "value": "about them a little bit later"
+    },
+    {
+      "start_secs": 645.12,
+      "duration_secs": 5.7,
+      "value": "uh we have a Docker file I will show you"
+    },
+    {
+      "start_secs": 648.3,
+      "duration_secs": 6.36,
+      "value": "why I need Docker file here we have"
+    },
+    {
+      "start_secs": 650.82,
+      "duration_secs": 5.9,
+      "value": "tests of course integration test here so"
+    },
+    {
+      "start_secs": 654.66,
+      "duration_secs": 8.359,
+      "value": "this is our project structure quite"
+    },
+    {
+      "start_secs": 656.72,
+      "duration_secs": 6.299,
+      "value": "usual uh rust project nothing special"
+    },
+    {
+      "start_secs": 663.12,
+      "duration_secs": 6.899,
+      "value": "we can run this project so"
+    },
+    {
+      "start_secs": 666.959,
+      "duration_secs": 5.221,
+      "value": "let me let me show"
+    },
+    {
+      "start_secs": 670.019,
+      "duration_secs": 6.801,
+      "value": "run it here"
+    },
+    {
+      "start_secs": 672.18,
+      "duration_secs": 10.62,
+      "value": "so first I can run it using command line"
+    },
+    {
+      "start_secs": 676.82,
+      "duration_secs": 8.56,
+      "value": "for example cargo run and here is it so"
+    },
+    {
+      "start_secs": 682.8,
+      "duration_secs": 4.08,
+      "value": "I need to provide some arguments there"
+    },
+    {
+      "start_secs": 685.38,
+      "duration_secs": 4.74,
+      "value": "is"
+    },
+    {
+      "start_secs": 686.88,
+      "duration_secs": 4.92,
+      "value": "some help I can like I do that here"
+    },
+    {
+      "start_secs": 690.12,
+      "duration_secs": 5.459,
+      "value": "so"
+    },
+    {
+      "start_secs": 691.8,
+      "duration_secs": 7.02,
+      "value": "a lot of information so to run it we"
+    },
+    {
+      "start_secs": 695.579,
+      "duration_secs": 6.301,
+      "value": "need to provide the following so I will"
+    },
+    {
+      "start_secs": 698.82,
+      "duration_secs": 6.56,
+      "value": "for example to be verbus and the size of"
+    },
+    {
+      "start_secs": 701.88,
+      "duration_secs": 6.06,
+      "value": "the problem will be 12 where is it 12"
+    },
+    {
+      "start_secs": 705.38,
+      "duration_secs": 4.72,
+      "value": "and then I am interested in breadth"
+    },
+    {
+      "start_secs": 707.94,
+      "duration_secs": 5.94,
+      "value": "first search implementation"
+    },
+    {
+      "start_secs": 710.1,
+      "duration_secs": 7.32,
+      "value": "like this so if I run it I will see some"
+    },
+    {
+      "start_secs": 713.88,
+      "duration_secs": 6.78,
+      "value": "information so if I don't want to write"
+    },
+    {
+      "start_secs": 717.42,
+      "duration_secs": 5.76,
+      "value": "all those arguments I also have some run"
+    },
+    {
+      "start_secs": 720.66,
+      "duration_secs": 6.9,
+      "value": "configurations in the project"
+    },
+    {
+      "start_secs": 723.18,
+      "duration_secs": 8.88,
+      "value": "so I can I can run them like like here"
+    },
+    {
+      "start_secs": 727.56,
+      "duration_secs": 7.32,
+      "value": "for example run BFS here is it breadth"
+    },
+    {
+      "start_secs": 732.06,
+      "duration_secs": 4.62,
+      "value": "first search so I don't need to provide"
+    },
+    {
+      "start_secs": 734.88,
+      "duration_secs": 4.44,
+      "value": "arguments all the time I just saved it"
+    },
+    {
+      "start_secs": 736.68,
+      "duration_secs": 6.48,
+      "value": "in run configuration here is some some"
+    },
+    {
+      "start_secs": 739.32,
+      "duration_secs": 6.84,
+      "value": "results and of course I have tests"
+    },
+    {
+      "start_secs": 743.16,
+      "duration_secs": 5.76,
+      "value": "and I can run tests"
+    },
+    {
+      "start_secs": 746.16,
+      "duration_secs": 5.46,
+      "value": "so here is it everything is all right so"
+    },
+    {
+      "start_secs": 748.92,
+      "duration_secs": 4.74,
+      "value": "we're on the safe side and whenever we"
+    },
+    {
+      "start_secs": 751.62,
+      "duration_secs": 5.1,
+      "value": "change something we can"
+    },
+    {
+      "start_secs": 753.66,
+      "duration_secs": 4.799,
+      "value": "test against just to see that we don't"
+    },
+    {
+      "start_secs": 756.72,
+      "duration_secs": 3.78,
+      "value": "break anything"
+    },
+    {
+      "start_secs": 758.459,
+      "duration_secs": 3.541,
+      "value": "all right so this is small project"
+    },
+    {
+      "start_secs": 760.5,
+      "duration_secs": 3.959,
+      "value": "overview"
+    },
+    {
+      "start_secs": 762.0,
+      "duration_secs": 5.16,
+      "value": "and now"
+    },
+    {
+      "start_secs": 764.459,
+      "duration_secs": 5.18,
+      "value": "let's get to the main"
+    },
+    {
+      "start_secs": 767.16,
+      "duration_secs": 2.479,
+      "value": "stuff"
+    },
+    {
+      "start_secs": 770.579,
+      "duration_secs": 5.82,
+      "value": "so what does it mean to profile memory"
+    },
+    {
+      "start_secs": 773.22,
+      "duration_secs": 6.48,
+      "value": "usage here are several questions that we"
+    },
+    {
+      "start_secs": 776.399,
+      "duration_secs": 6.841,
+      "value": "may be interested in for example how"
+    },
+    {
+      "start_secs": 779.7,
+      "duration_secs": 7.199,
+      "value": "much memory is taken by some containers"
+    },
+    {
+      "start_secs": 783.24,
+      "duration_secs": 4.56,
+      "value": "from string or a vector or stuff like"
+    },
+    {
+      "start_secs": 786.899,
+      "duration_secs": 3.841,
+      "value": "that"
+    },
+    {
+      "start_secs": 787.8,
+      "duration_secs": 4.56,
+      "value": "how much memory our program uses in in"
+    },
+    {
+      "start_secs": 790.74,
+      "duration_secs": 5.099,
+      "value": "total"
+    },
+    {
+      "start_secs": 792.36,
+      "duration_secs": 5.7,
+      "value": "so when and how we allocate memory"
+    },
+    {
+      "start_secs": 795.839,
+      "duration_secs": 4.921,
+      "value": "because memory allocation is some"
+    },
+    {
+      "start_secs": 798.06,
+      "duration_secs": 5.1,
+      "value": "operation which requires working with"
+    },
+    {
+      "start_secs": 800.76,
+      "duration_secs": 5.1,
+      "value": "the operating system we have to do"
+    },
+    {
+      "start_secs": 803.16,
+      "duration_secs": 5.16,
+      "value": "system calls it takes a lot of time so"
+    },
+    {
+      "start_secs": 805.86,
+      "duration_secs": 4.8,
+      "value": "we want to know for sure when that"
+    },
+    {
+      "start_secs": 808.32,
+      "duration_secs": 6.319,
+      "value": "memory is located"
+    },
+    {
+      "start_secs": 810.66,
+      "duration_secs": 6.54,
+      "value": "so is it delegated correctly like people"
+    },
+    {
+      "start_secs": 814.639,
+      "duration_secs": 4.781,
+      "value": "often say that we don't have memory"
+    },
+    {
+      "start_secs": 817.2,
+      "duration_secs": 5.1,
+      "value": "leaks rust and this is definitely not"
+    },
+    {
+      "start_secs": 819.42,
+      "duration_secs": 5.4,
+      "value": "true it's possible if you use reference"
+    },
+    {
+      "start_secs": 822.3,
+      "duration_secs": 6.2,
+      "value": "counting something like that it's"
+    },
+    {
+      "start_secs": 824.82,
+      "duration_secs": 3.68,
+      "value": "possible to get some problems"
+    },
+    {
+      "start_secs": 828.6,
+      "duration_secs": 7.14,
+      "value": "so there are several"
+    },
+    {
+      "start_secs": 831.959,
+      "duration_secs": 6.601,
+      "value": "simple things then that we can do in"
+    },
+    {
+      "start_secs": 835.74,
+      "duration_secs": 5.399,
+      "value": "this regard so how we can profile that"
+    },
+    {
+      "start_secs": 838.56,
+      "duration_secs": 4.98,
+      "value": "so I'm going to present them but"
+    },
+    {
+      "start_secs": 841.139,
+      "duration_secs": 6.661,
+      "value": "remember I'm not going to talk about"
+    },
+    {
+      "start_secs": 843.54,
+      "duration_secs": 8.28,
+      "value": "something very sophisticated not at all"
+    },
+    {
+      "start_secs": 847.8,
+      "duration_secs": 8.42,
+      "value": "so no sophisticated things but we can do"
+    },
+    {
+      "start_secs": 851.82,
+      "duration_secs": 8.699,
+      "value": "a lot using just very simple stuff"
+    },
+    {
+      "start_secs": 856.22,
+      "duration_secs": 6.7,
+      "value": "so let me uh show you some examples of"
+    },
+    {
+      "start_secs": 860.519,
+      "duration_secs": 6.361,
+      "value": "the code how we do stuff"
+    },
+    {
+      "start_secs": 862.92,
+      "duration_secs": 6.9,
+      "value": "so I will start with this"
+    },
+    {
+      "start_secs": 866.88,
+      "duration_secs": 6.84,
+      "value": "so let me"
+    },
+    {
+      "start_secs": 869.82,
+      "duration_secs": 6.0,
+      "value": "just just sort something I will I will"
+    },
+    {
+      "start_secs": 873.72,
+      "duration_secs": 4.32,
+      "value": "change some"
+    },
+    {
+      "start_secs": 875.82,
+      "duration_secs": 5.1,
+      "value": "structure of my"
+    },
+    {
+      "start_secs": 878.04,
+      "duration_secs": 5.22,
+      "value": "ID here so just just to see everything"
+    },
+    {
+      "start_secs": 880.92,
+      "duration_secs": 5.7,
+      "value": "and I'll get back to the presentation"
+    },
+    {
+      "start_secs": 883.26,
+      "duration_secs": 4.56,
+      "value": "mode so here we are"
+    },
+    {
+      "start_secs": 886.62,
+      "duration_secs": 3.98,
+      "value": "so"
+    },
+    {
+      "start_secs": 887.82,
+      "duration_secs": 2.78,
+      "value": "uh"
+    },
+    {
+      "start_secs": 890.639,
+      "duration_secs": 8.581,
+      "value": "our first tool is just asking for length"
+    },
+    {
+      "start_secs": 895.62,
+      "duration_secs": 6.54,
+      "value": "and capacity of our data structures"
+    },
+    {
+      "start_secs": 899.22,
+      "duration_secs": 5.4,
+      "value": "for example here you can see some"
+    },
+    {
+      "start_secs": 902.16,
+      "duration_secs": 5.7,
+      "value": "information about memory usage in our"
+    },
+    {
+      "start_secs": 904.62,
+      "duration_secs": 4.56,
+      "value": "program so I just asked for the length"
+    },
+    {
+      "start_secs": 907.86,
+      "duration_secs": 4.5,
+      "value": "of the vector"
+    },
+    {
+      "start_secs": 909.18,
+      "duration_secs": 6.74,
+      "value": "just as usual and the capacity of the"
+    },
+    {
+      "start_secs": 912.36,
+      "duration_secs": 8.039,
+      "value": "vector so length length is the"
+    },
+    {
+      "start_secs": 915.92,
+      "duration_secs": 7.18,
+      "value": "number of elements in that vector and"
+    },
+    {
+      "start_secs": 920.399,
+      "duration_secs": 5.421,
+      "value": "capacity is memory usage so how much"
+    },
+    {
+      "start_secs": 923.1,
+      "duration_secs": 7.08,
+      "value": "elements"
+    },
+    {
+      "start_secs": 925.82,
+      "duration_secs": 5.5,
+      "value": "we can put into Vector without changing"
+    },
+    {
+      "start_secs": 930.18,
+      "duration_secs": 3.839,
+      "value": "its size"
+    },
+    {
+      "start_secs": 931.32,
+      "duration_secs": 3.78,
+      "value": "so very simple but it's actually very"
+    },
+    {
+      "start_secs": 934.019,
+      "duration_secs": 5.841,
+      "value": "helpful"
+    },
+    {
+      "start_secs": 935.1,
+      "duration_secs": 7.919,
+      "value": "so I think I think I can I can uh"
+    },
+    {
+      "start_secs": 939.86,
+      "duration_secs": 6.4,
+      "value": "show how when we run it so here you can"
+    },
+    {
+      "start_secs": 943.019,
+      "duration_secs": 6.721,
+      "value": "see the size and capacity are just the"
+    },
+    {
+      "start_secs": 946.26,
+      "duration_secs": 6.96,
+      "value": "same all right very simple and we can do"
+    },
+    {
+      "start_secs": 949.74,
+      "duration_secs": 6.839,
+      "value": "the same with strings for example"
+    },
+    {
+      "start_secs": 953.22,
+      "duration_secs": 5.82,
+      "value": "string capacity we can check that too"
+    },
+    {
+      "start_secs": 956.579,
+      "duration_secs": 6.241,
+      "value": "and uh"
+    },
+    {
+      "start_secs": 959.04,
+      "duration_secs": 7.14,
+      "value": "so I compute it here so here here is a"
+    },
+    {
+      "start_secs": 962.82,
+      "duration_secs": 5.3,
+      "value": "problem with strings and we know that if"
+    },
+    {
+      "start_secs": 966.18,
+      "duration_secs": 6.36,
+      "value": "we have 12"
+    },
+    {
+      "start_secs": 968.12,
+      "duration_secs": 7.24,
+      "value": "parents that means 12 pairs of"
+    },
+    {
+      "start_secs": 972.54,
+      "duration_secs": 6.299,
+      "value": "parentheses that means that the size of"
+    },
+    {
+      "start_secs": 975.36,
+      "duration_secs": 8.46,
+      "value": "the string should be 24."
+    },
+    {
+      "start_secs": 978.839,
+      "duration_secs": 8.041,
+      "value": "but every capacity per string is 38 and"
+    },
+    {
+      "start_secs": 983.82,
+      "duration_secs": 7.259,
+      "value": "that means that a lot of strings just"
+    },
+    {
+      "start_secs": 986.88,
+      "duration_secs": 5.34,
+      "value": "use more memory that we actually need"
+    },
+    {
+      "start_secs": 991.079,
+      "duration_secs": 3.62,
+      "value": "so"
+    },
+    {
+      "start_secs": 992.22,
+      "duration_secs": 5.22,
+      "value": "even if we look at such a simple"
+    },
+    {
+      "start_secs": 994.699,
+      "duration_secs": 6.521,
+      "value": "characteristics then we'll see that"
+    },
+    {
+      "start_secs": 997.44,
+      "duration_secs": 7.8,
+      "value": "there are some problems like 30 percent"
+    },
+    {
+      "start_secs": 1001.22,
+      "duration_secs": 8.28,
+      "value": "of memory isn't actually used for good"
+    },
+    {
+      "start_secs": 1005.24,
+      "duration_secs": 5.88,
+      "value": "so a little bit of problem"
+    },
+    {
+      "start_secs": 1009.5,
+      "duration_secs": 5.699,
+      "value": "okay"
+    },
+    {
+      "start_secs": 1011.12,
+      "duration_secs": 7.5,
+      "value": "then let's look here so what is this"
+    },
+    {
+      "start_secs": 1015.199,
+      "duration_secs": 6.181,
+      "value": "function Dynamic usage"
+    },
+    {
+      "start_secs": 1018.62,
+      "duration_secs": 3.959,
+      "value": "usual Vector doesn't have such such a"
+    },
+    {
+      "start_secs": 1021.38,
+      "duration_secs": 6.059,
+      "value": "function"
+    },
+    {
+      "start_secs": 1022.579,
+      "duration_secs": 9.661,
+      "value": "it comes from another crate so I will"
+    },
+    {
+      "start_secs": 1027.439,
+      "duration_secs": 8.76,
+      "value": "show it here it's from memus"
+    },
+    {
+      "start_secs": 1032.24,
+      "duration_secs": 6.3,
+      "value": "so if you add this dependency you will"
+    },
+    {
+      "start_secs": 1036.199,
+      "duration_secs": 4.98,
+      "value": "go get this function which tries to do"
+    },
+    {
+      "start_secs": 1038.54,
+      "duration_secs": 5.46,
+      "value": "its best to compute the overall memory"
+    },
+    {
+      "start_secs": 1041.179,
+      "duration_secs": 6.361,
+      "value": "usage of your data structure such as"
+    },
+    {
+      "start_secs": 1044.0,
+      "duration_secs": 6.86,
+      "value": "vector or hashmap you can use"
+    },
+    {
+      "start_secs": 1047.54,
+      "duration_secs": 3.32,
+      "value": "this Dynamic"
+    },
+    {
+      "start_secs": 1050.98,
+      "duration_secs": 8.199,
+      "value": "usage function with everything so"
+    },
+    {
+      "start_secs": 1055.66,
+      "duration_secs": 5.259,
+      "value": "just add this library and you can get a"
+    },
+    {
+      "start_secs": 1059.179,
+      "duration_secs": 4.74,
+      "value": "lot of your information"
+    },
+    {
+      "start_secs": 1060.919,
+      "duration_secs": 5.941,
+      "value": "and I also use human bytes here"
+    },
+    {
+      "start_secs": 1063.919,
+      "duration_secs": 6.661,
+      "value": "just just to present this information in"
+    },
+    {
+      "start_secs": 1066.86,
+      "duration_secs": 7.5,
+      "value": "this nice way so you just"
+    },
+    {
+      "start_secs": 1070.58,
+      "duration_secs": 4.82,
+      "value": "seeing it 7.6 megabytes and stuff like"
+    },
+    {
+      "start_secs": 1074.36,
+      "duration_secs": 3.54,
+      "value": "that"
+    },
+    {
+      "start_secs": 1075.4,
+      "duration_secs": 5.019,
+      "value": "oh by the way it's it's a little bit"
+    },
+    {
+      "start_secs": 1077.9,
+      "duration_secs": 4.38,
+      "value": "outdated I can update it right now maybe"
+    },
+    {
+      "start_secs": 1080.419,
+      "duration_secs": 4.321,
+      "value": "it's better"
+    },
+    {
+      "start_secs": 1082.28,
+      "duration_secs": 5.46,
+      "value": "yeah awful enough nothing will break"
+    },
+    {
+      "start_secs": 1084.74,
+      "duration_secs": 5.7,
+      "value": "yeah okay let's let's write check as"
+    },
+    {
+      "start_secs": 1087.74,
+      "duration_secs": 5.64,
+      "value": "usual as we do that we we write tests"
+    },
+    {
+      "start_secs": 1090.44,
+      "duration_secs": 6.06,
+      "value": "all the time and if it's fine then okay"
+    },
+    {
+      "start_secs": 1093.38,
+      "duration_secs": 4.56,
+      "value": "we have no say safe side so just Justice"
+    },
+    {
+      "start_secs": 1096.5,
+      "duration_secs": 5.76,
+      "value": "okay"
+    },
+    {
+      "start_secs": 1097.94,
+      "duration_secs": 6.66,
+      "value": "um so we can use very simple library to"
+    },
+    {
+      "start_secs": 1102.26,
+      "duration_secs": 6.72,
+      "value": "check memory usage"
+    },
+    {
+      "start_secs": 1104.6,
+      "duration_secs": 7.439,
+      "value": "like this Dynamic usage and just you can"
+    },
+    {
+      "start_secs": 1108.98,
+      "duration_secs": 5.579,
+      "value": "get a lot of information about that how"
+    },
+    {
+      "start_secs": 1112.039,
+      "duration_secs": 5.101,
+      "value": "many memory is actually used by our"
+    },
+    {
+      "start_secs": 1114.559,
+      "duration_secs": 6.48,
+      "value": "problems"
+    },
+    {
+      "start_secs": 1117.14,
+      "duration_secs": 7.82,
+      "value": "but these are very simple things"
+    },
+    {
+      "start_secs": 1121.039,
+      "duration_secs": 9.061,
+      "value": "let's use something more sophisticated"
+    },
+    {
+      "start_secs": 1124.96,
+      "duration_secs": 9.099,
+      "value": "namely let's do real real profiling so I"
+    },
+    {
+      "start_secs": 1130.1,
+      "duration_secs": 7.439,
+      "value": "will use uh instruments so I'm using Mac"
+    },
+    {
+      "start_secs": 1134.059,
+      "duration_secs": 6.921,
+      "value": "OS here and then Mac OS there is this"
+    },
+    {
+      "start_secs": 1137.539,
+      "duration_secs": 6.0,
+      "value": "program instruments that actually"
+    },
+    {
+      "start_secs": 1140.98,
+      "duration_secs": 5.68,
+      "value": "shows you a lot of information about"
+    },
+    {
+      "start_secs": 1143.539,
+      "duration_secs": 5.221,
+      "value": "your program so it's profiler for Mac OS"
+    },
+    {
+      "start_secs": 1146.66,
+      "duration_secs": 6.24,
+      "value": "operating system"
+    },
+    {
+      "start_secs": 1148.76,
+      "duration_secs": 9.06,
+      "value": "so let me call it"
+    },
+    {
+      "start_secs": 1152.9,
+      "duration_secs": 8.399,
+      "value": "so here I run the program with BFS and"
+    },
+    {
+      "start_secs": 1157.82,
+      "duration_secs": 6.78,
+      "value": "DFS one after another and then I want to"
+    },
+    {
+      "start_secs": 1161.299,
+      "duration_secs": 6.361,
+      "value": "to see how the memory is allocated so"
+    },
+    {
+      "start_secs": 1164.6,
+      "duration_secs": 6.18,
+      "value": "I'm talking about memory allocation here"
+    },
+    {
+      "start_secs": 1167.66,
+      "duration_secs": 7.259,
+      "value": "so let me run it"
+    },
+    {
+      "start_secs": 1170.78,
+      "duration_secs": 6.3,
+      "value": "and it runs the program it compiles all"
+    },
+    {
+      "start_secs": 1174.919,
+      "duration_secs": 6.781,
+      "value": "the all the information"
+    },
+    {
+      "start_secs": 1177.08,
+      "duration_secs": 7.8,
+      "value": "and when it's over it shows us how some"
+    },
+    {
+      "start_secs": 1181.7,
+      "duration_secs": 4.14,
+      "value": "information in a graphical way here is"
+    },
+    {
+      "start_secs": 1184.88,
+      "duration_secs": 3.679,
+      "value": "it"
+    },
+    {
+      "start_secs": 1185.84,
+      "duration_secs": 2.719,
+      "value": "foreign"
+    },
+    {
+      "start_secs": 1189.679,
+      "duration_secs": 5.821,
+      "value": "so this is BFS and you can see these"
+    },
+    {
+      "start_secs": 1193.22,
+      "duration_secs": 4.579,
+      "value": "steps how memory is getting bigger and"
+    },
+    {
+      "start_secs": 1195.5,
+      "duration_secs": 2.299,
+      "value": "bigger"
+    },
+    {
+      "start_secs": 1197.9,
+      "duration_secs": 6.92,
+      "value": "like this allocation then more locations"
+    },
+    {
+      "start_secs": 1201.2,
+      "duration_secs": 3.62,
+      "value": "even more locations here"
+    },
+    {
+      "start_secs": 1204.98,
+      "duration_secs": 5.66,
+      "value": "graph"
+    },
+    {
+      "start_secs": 1206.36,
+      "duration_secs": 6.66,
+      "value": "we can see for example that there is no"
+    },
+    {
+      "start_secs": 1210.64,
+      "duration_secs": 6.24,
+      "value": "memory leaks here"
+    },
+    {
+      "start_secs": 1213.02,
+      "duration_secs": 5.48,
+      "value": "because this is our first"
+    },
+    {
+      "start_secs": 1216.88,
+      "duration_secs": 5.08,
+      "value": "BFS"
+    },
+    {
+      "start_secs": 1218.5,
+      "duration_secs": 6.58,
+      "value": "algorithm and then every memory is"
+    },
+    {
+      "start_secs": 1221.96,
+      "duration_secs": 6.06,
+      "value": "almost every memory is read and then we"
+    },
+    {
+      "start_secs": 1225.08,
+      "duration_secs": 5.459,
+      "value": "start our second algorithm and then"
+    },
+    {
+      "start_secs": 1228.02,
+      "duration_secs": 5.039,
+      "value": "again we do a lot of allocations and"
+    },
+    {
+      "start_secs": 1230.539,
+      "duration_secs": 5.701,
+      "value": "then everything is read again"
+    },
+    {
+      "start_secs": 1233.059,
+      "duration_secs": 6.421,
+      "value": "so this behavior is actually very good"
+    },
+    {
+      "start_secs": 1236.24,
+      "duration_secs": 5.1,
+      "value": "one problem one possible problem that we"
+    },
+    {
+      "start_secs": 1239.48,
+      "duration_secs": 4.62,
+      "value": "can see from this graph"
+    },
+    {
+      "start_secs": 1241.34,
+      "duration_secs": 4.199,
+      "value": "is that we do"
+    },
+    {
+      "start_secs": 1244.1,
+      "duration_secs": 4.079,
+      "value": "a lot of"
+    },
+    {
+      "start_secs": 1245.539,
+      "duration_secs": 6.601,
+      "value": "allocations here"
+    },
+    {
+      "start_secs": 1248.179,
+      "duration_secs": 6.781,
+      "value": "so we can we can see its some stats here"
+    },
+    {
+      "start_secs": 1252.14,
+      "duration_secs": 5.039,
+      "value": "but it doesn't matter"
+    },
+    {
+      "start_secs": 1254.96,
+      "duration_secs": 5.459,
+      "value": "for for this moment"
+    },
+    {
+      "start_secs": 1257.179,
+      "duration_secs": 7.141,
+      "value": "so when we do a lot of allocations and"
+    },
+    {
+      "start_secs": 1260.419,
+      "duration_secs": 6.181,
+      "value": "you see these steps these steps here you"
+    },
+    {
+      "start_secs": 1264.32,
+      "duration_secs": 5.52,
+      "value": "can think about"
+    },
+    {
+      "start_secs": 1266.6,
+      "duration_secs": 6.0,
+      "value": "time which is spent on that allocation"
+    },
+    {
+      "start_secs": 1269.84,
+      "duration_secs": 7.44,
+      "value": "so every time we ask a trading system"
+    },
+    {
+      "start_secs": 1272.6,
+      "duration_secs": 7.86,
+      "value": "for to give us more memory maybe it's"
+    },
+    {
+      "start_secs": 1277.28,
+      "duration_secs": 7.019,
+      "value": "it's better to ask for that memory in"
+    },
+    {
+      "start_secs": 1280.46,
+      "duration_secs": 8.099,
+      "value": "advance then we'll ask it for just once"
+    },
+    {
+      "start_secs": 1284.299,
+      "duration_secs": 5.701,
+      "value": "and then it will be this graph will be a"
+    },
+    {
+      "start_secs": 1288.559,
+      "duration_secs": 2.701,
+      "value": "little bit different"
+    },
+    {
+      "start_secs": 1290.0,
+      "duration_secs": 4.94,
+      "value": "all right"
+    },
+    {
+      "start_secs": 1291.26,
+      "duration_secs": 3.68,
+      "value": "so I will close it now"
+    },
+    {
+      "start_secs": 1295.22,
+      "duration_secs": 5.819,
+      "value": "so very simple thing in fact if you are"
+    },
+    {
+      "start_secs": 1298.64,
+      "duration_secs": 7.08,
+      "value": "interested in this instruments Library"
+    },
+    {
+      "start_secs": 1301.039,
+      "duration_secs": 8.341,
+      "value": "you can you can use it with cargo there"
+    },
+    {
+      "start_secs": 1305.72,
+      "duration_secs": 6.02,
+      "value": "is a crate cargo instruments you install"
+    },
+    {
+      "start_secs": 1309.38,
+      "duration_secs": 5.46,
+      "value": "it and it's just just some"
+    },
+    {
+      "start_secs": 1311.74,
+      "duration_secs": 5.319,
+      "value": "intermediate thing between instruments"
+    },
+    {
+      "start_secs": 1314.84,
+      "duration_secs": 5.699,
+      "value": "and your cargo project"
+    },
+    {
+      "start_secs": 1317.059,
+      "duration_secs": 7.561,
+      "value": "but of course not everyone has Mac OS"
+    },
+    {
+      "start_secs": 1320.539,
+      "duration_secs": 6.961,
+      "value": "like in uh Windows you have Visual"
+    },
+    {
+      "start_secs": 1324.62,
+      "duration_secs": 5.4,
+      "value": "Studio profiler well it's totally"
+    },
+    {
+      "start_secs": 1327.5,
+      "duration_secs": 6.6,
+      "value": "different but the idea is the same"
+    },
+    {
+      "start_secs": 1330.02,
+      "duration_secs": 7.44,
+      "value": "so you don't need to know a lot of"
+    },
+    {
+      "start_secs": 1334.1,
+      "duration_secs": 4.68,
+      "value": "things about your program to see this"
+    },
+    {
+      "start_secs": 1337.46,
+      "duration_secs": 3.48,
+      "value": "small graph"
+    },
+    {
+      "start_secs": 1338.78,
+      "duration_secs": 6.54,
+      "value": "it's very easy"
+    },
+    {
+      "start_secs": 1340.94,
+      "duration_secs": 7.68,
+      "value": "so many people have uh Linux and in"
+    },
+    {
+      "start_secs": 1345.32,
+      "duration_secs": 7.14,
+      "value": "Linux we have the main tool for doing"
+    },
+    {
+      "start_secs": 1348.62,
+      "duration_secs": 5.7,
+      "value": "profiling is well green so let's run"
+    },
+    {
+      "start_secs": 1352.46,
+      "duration_secs": 4.68,
+      "value": "wild ring here"
+    },
+    {
+      "start_secs": 1354.32,
+      "duration_secs": 6.239,
+      "value": "so I have special uh"
+    },
+    {
+      "start_secs": 1357.14,
+      "duration_secs": 7.019,
+      "value": "run configuration for Val green and I"
+    },
+    {
+      "start_secs": 1360.559,
+      "duration_secs": 7.441,
+      "value": "use Docker to run it because well we"
+    },
+    {
+      "start_secs": 1364.159,
+      "duration_secs": 6.841,
+      "value": "have Walgreens for Mac OS but it's not"
+    },
+    {
+      "start_secs": 1368.0,
+      "duration_secs": 5.039,
+      "value": "supported in a very good way so let's"
+    },
+    {
+      "start_secs": 1371.0,
+      "duration_secs": 4.799,
+      "value": "run it in a docker"
+    },
+    {
+      "start_secs": 1373.039,
+      "duration_secs": 7.14,
+      "value": "so I have to Docker container I'll"
+    },
+    {
+      "start_secs": 1375.799,
+      "duration_secs": 8.161,
+      "value": "discuss it in a minute let me write run"
+    },
+    {
+      "start_secs": 1380.179,
+      "duration_secs": 7.38,
+      "value": "terminal here and in terminal"
+    },
+    {
+      "start_secs": 1383.96,
+      "duration_secs": 6.839,
+      "value": "and go to the directory with with this"
+    },
+    {
+      "start_secs": 1387.559,
+      "duration_secs": 6.901,
+      "value": "project I do cargo build"
+    },
+    {
+      "start_secs": 1390.799,
+      "duration_secs": 6.481,
+      "value": "and while it's updating crates let's"
+    },
+    {
+      "start_secs": 1394.46,
+      "duration_secs": 6.599,
+      "value": "look at this Docker file"
+    },
+    {
+      "start_secs": 1397.28,
+      "duration_secs": 6.54,
+      "value": "so Docker file is actually very simple"
+    },
+    {
+      "start_secs": 1401.059,
+      "duration_secs": 6.541,
+      "value": "it's Ubuntu"
+    },
+    {
+      "start_secs": 1403.82,
+      "duration_secs": 6.78,
+      "value": "and I installed Al Green some"
+    },
+    {
+      "start_secs": 1407.6,
+      "duration_secs": 6.36,
+      "value": "Clank C compiler something very very"
+    },
+    {
+      "start_secs": 1410.6,
+      "duration_secs": 7.04,
+      "value": "essential in order to make all these uh"
+    },
+    {
+      "start_secs": 1413.96,
+      "duration_secs": 6.599,
+      "value": "workable and then I also install rust"
+    },
+    {
+      "start_secs": 1417.64,
+      "duration_secs": 7.539,
+      "value": "and I use table rust"
+    },
+    {
+      "start_secs": 1420.559,
+      "duration_secs": 7.62,
+      "value": "and so very simple Docker container"
+    },
+    {
+      "start_secs": 1425.179,
+      "duration_secs": 7.38,
+      "value": "and I use here Docker integration for"
+    },
+    {
+      "start_secs": 1428.179,
+      "duration_secs": 6.12,
+      "value": "selection and it's installed you don't"
+    },
+    {
+      "start_secs": 1432.559,
+      "duration_secs": 4.74,
+      "value": "don't need to install it because it's"
+    },
+    {
+      "start_secs": 1434.299,
+      "duration_secs": 4.981,
+      "value": "bundled with someone uh from the very"
+    },
+    {
+      "start_secs": 1437.299,
+      "duration_secs": 3.721,
+      "value": "beginning"
+    },
+    {
+      "start_secs": 1439.28,
+      "duration_secs": 4.56,
+      "value": "so"
+    },
+    {
+      "start_secs": 1441.02,
+      "duration_secs": 5.58,
+      "value": "with this Docker file we can run"
+    },
+    {
+      "start_secs": 1443.84,
+      "duration_secs": 4.199,
+      "value": "everything we want in the docker"
+    },
+    {
+      "start_secs": 1446.6,
+      "duration_secs": 4.62,
+      "value": "container"
+    },
+    {
+      "start_secs": 1448.039,
+      "duration_secs": 7.5,
+      "value": "so we have file green and we have Frost"
+    },
+    {
+      "start_secs": 1451.22,
+      "duration_secs": 6.36,
+      "value": "and then let's wait when this build is"
+    },
+    {
+      "start_secs": 1455.539,
+      "duration_secs": 4.62,
+      "value": "is over"
+    },
+    {
+      "start_secs": 1457.58,
+      "duration_secs": 6.959,
+      "value": "so my idea"
+    },
+    {
+      "start_secs": 1460.159,
+      "duration_secs": 8.701,
+      "value": "is to see that we can have the same"
+    },
+    {
+      "start_secs": 1464.539,
+      "duration_secs": 8.581,
+      "value": "graphs as an instrument but for Linux"
+    },
+    {
+      "start_secs": 1468.86,
+      "duration_secs": 7.34,
+      "value": "so we don't have to uh do something with"
+    },
+    {
+      "start_secs": 1473.12,
+      "duration_secs": 3.08,
+      "value": "our operating system"
+    },
+    {
+      "start_secs": 1476.38,
+      "duration_secs": 5.62,
+      "value": "sometimes profiling in different"
+    },
+    {
+      "start_secs": 1479.12,
+      "duration_secs": 6.539,
+      "value": "operating systems is shows different"
+    },
+    {
+      "start_secs": 1482.0,
+      "duration_secs": 6.78,
+      "value": "results but that's hard part but we are"
+    },
+    {
+      "start_secs": 1485.659,
+      "duration_secs": 5.161,
+      "value": "talking here about easy parts so for us"
+    },
+    {
+      "start_secs": 1488.78,
+      "duration_secs": 4.68,
+      "value": "if it's okay in one operating system"
+    },
+    {
+      "start_secs": 1490.82,
+      "duration_secs": 5.64,
+      "value": "then it's okay in another tool all right"
+    },
+    {
+      "start_secs": 1493.46,
+      "duration_secs": 6.199,
+      "value": "so we have we've built it so I can run"
+    },
+    {
+      "start_secs": 1496.46,
+      "duration_secs": 4.88,
+      "value": "it so this is my path to the"
+    },
+    {
+      "start_secs": 1499.659,
+      "duration_secs": 4.921,
+      "value": "executable"
+    },
+    {
+      "start_secs": 1501.34,
+      "duration_secs": 6.219,
+      "value": "uh it's Target"
+    },
+    {
+      "start_secs": 1504.58,
+      "duration_secs": 6.28,
+      "value": "Docker it will be debug build this is"
+    },
+    {
+      "start_secs": 1507.559,
+      "duration_secs": 5.881,
+      "value": "from program so this is it yes this is"
+    },
+    {
+      "start_secs": 1510.86,
+      "duration_secs": 7.14,
+      "value": "it so I will write"
+    },
+    {
+      "start_secs": 1513.44,
+      "duration_secs": 8.52,
+      "value": "verbose version with size 12 and this"
+    },
+    {
+      "start_secs": 1518.0,
+      "duration_secs": 7.38,
+      "value": "will be BFS so here is it it just just"
+    },
+    {
+      "start_secs": 1521.96,
+      "duration_secs": 6.36,
+      "value": "run it and now I want to run it using"
+    },
+    {
+      "start_secs": 1525.38,
+      "duration_secs": 5.34,
+      "value": "valgrind so it's just the same command"
+    },
+    {
+      "start_secs": 1528.32,
+      "duration_secs": 5.16,
+      "value": "line but I add 12 green"
+    },
+    {
+      "start_secs": 1530.72,
+      "duration_secs": 8.16,
+      "value": "and well Grint is actually a family of"
+    },
+    {
+      "start_secs": 1533.48,
+      "duration_secs": 8.699,
+      "value": "tools and one tool I want to use here is"
+    },
+    {
+      "start_secs": 1538.88,
+      "duration_secs": 6.24,
+      "value": "called massive"
+    },
+    {
+      "start_secs": 1542.179,
+      "duration_secs": 5.281,
+      "value": "it's memory analyzer"
+    },
+    {
+      "start_secs": 1545.12,
+      "duration_secs": 5.7,
+      "value": "in Valkyrie there are several memory"
+    },
+    {
+      "start_secs": 1547.46,
+      "duration_secs": 6.54,
+      "value": "analyzer so passive is one of them"
+    },
+    {
+      "start_secs": 1550.82,
+      "duration_secs": 8.099,
+      "value": "so I run it"
+    },
+    {
+      "start_secs": 1554.0,
+      "duration_secs": 6.72,
+      "value": "and while we run it it creates a file we"
+    },
+    {
+      "start_secs": 1558.919,
+      "duration_secs": 5.461,
+      "value": "can see it here"
+    },
+    {
+      "start_secs": 1560.72,
+      "duration_secs": 8.1,
+      "value": "and it's it's actually very very long"
+    },
+    {
+      "start_secs": 1564.38,
+      "duration_secs": 6.84,
+      "value": "text file but fortunately there is a"
+    },
+    {
+      "start_secs": 1568.82,
+      "duration_secs": 7.339,
+      "value": "special program here to"
+    },
+    {
+      "start_secs": 1571.22,
+      "duration_secs": 4.939,
+      "value": "analyze it it's called massive print"
+    },
+    {
+      "start_secs": 1577.58,
+      "duration_secs": 3.719,
+      "value": "okay"
+    },
+    {
+      "start_secs": 1579.26,
+      "duration_secs": 4.44,
+      "value": "so"
+    },
+    {
+      "start_secs": 1581.299,
+      "duration_secs": 4.681,
+      "value": "once again it's a lot of information but"
+    },
+    {
+      "start_secs": 1583.7,
+      "duration_secs": 5.94,
+      "value": "there is something interesting in the"
+    },
+    {
+      "start_secs": 1585.98,
+      "duration_secs": 6.78,
+      "value": "very beginning let me show it to you"
+    },
+    {
+      "start_secs": 1589.64,
+      "duration_secs": 5.94,
+      "value": "so here is it"
+    },
+    {
+      "start_secs": 1592.76,
+      "duration_secs": 3.799,
+      "value": "this is actually the same sort of a"
+    },
+    {
+      "start_secs": 1595.58,
+      "duration_secs": 5.4,
+      "value": "graph"
+    },
+    {
+      "start_secs": 1596.559,
+      "duration_secs": 7.421,
+      "value": "we saw in instruments"
+    },
+    {
+      "start_secs": 1600.98,
+      "duration_secs": 5.64,
+      "value": "it's in text form but still it gives you"
+    },
+    {
+      "start_secs": 1603.98,
+      "duration_secs": 4.62,
+      "value": "almost the same information"
+    },
+    {
+      "start_secs": 1606.62,
+      "duration_secs": 4.26,
+      "value": "the behavior can be a little bit"
+    },
+    {
+      "start_secs": 1608.6,
+      "duration_secs": 4.5,
+      "value": "different like the behavior of"
+    },
+    {
+      "start_secs": 1610.88,
+      "duration_secs": 4.74,
+      "value": "allocation because this this part"
+    },
+    {
+      "start_secs": 1613.1,
+      "duration_secs": 5.76,
+      "value": "depends on the actual operating system"
+    },
+    {
+      "start_secs": 1615.62,
+      "duration_secs": 5.159,
+      "value": "they have different allocators and"
+    },
+    {
+      "start_secs": 1618.86,
+      "duration_secs": 4.86,
+      "value": "different system calls and stuff like"
+    },
+    {
+      "start_secs": 1620.779,
+      "duration_secs": 5.341,
+      "value": "that but still it just allocates"
+    },
+    {
+      "start_secs": 1623.72,
+      "duration_secs": 3.78,
+      "value": "something and then it's freed everything"
+    },
+    {
+      "start_secs": 1626.12,
+      "duration_secs": 3.9,
+      "value": "up"
+    },
+    {
+      "start_secs": 1627.5,
+      "duration_secs": 6.36,
+      "value": "so this is the behavior of our program"
+    },
+    {
+      "start_secs": 1630.02,
+      "duration_secs": 7.8,
+      "value": "and we can use it very easily and we can"
+    },
+    {
+      "start_secs": 1633.86,
+      "duration_secs": 3.96,
+      "value": "see what's going on here"
+    },
+    {
+      "start_secs": 1637.88,
+      "duration_secs": 6.56,
+      "value": "so in order to profile memories yes and"
+    },
+    {
+      "start_secs": 1641.24,
+      "duration_secs": 7.26,
+      "value": "and we also we can see the the"
+    },
+    {
+      "start_secs": 1644.44,
+      "duration_secs": 6.719,
+      "value": "amount of number of bytes allocated and"
+    },
+    {
+      "start_secs": 1648.5,
+      "duration_secs": 2.659,
+      "value": "stuff like that"
+    },
+    {
+      "start_secs": 1651.38,
+      "duration_secs": 6.779,
+      "value": "so we can see these pictures"
+    },
+    {
+      "start_secs": 1655.46,
+      "duration_secs": 5.819,
+      "value": "and if we change something we can"
+    },
+    {
+      "start_secs": 1658.159,
+      "duration_secs": 6.0,
+      "value": "compare with those pictures and see if"
+    },
+    {
+      "start_secs": 1661.279,
+      "duration_secs": 4.14,
+      "value": "something is different"
+    },
+    {
+      "start_secs": 1664.159,
+      "duration_secs": 5.181,
+      "value": "all right"
+    },
+    {
+      "start_secs": 1665.419,
+      "duration_secs": 3.921,
+      "value": "now let's look at uh"
+    },
+    {
+      "start_secs": 1669.86,
+      "duration_secs": 6.24,
+      "value": "time profiling once again very simple"
+    },
+    {
+      "start_secs": 1673.22,
+      "duration_secs": 5.76,
+      "value": "things we want to know how much time"
+    },
+    {
+      "start_secs": 1676.1,
+      "duration_secs": 5.579,
+      "value": "does it take to compute results"
+    },
+    {
+      "start_secs": 1678.98,
+      "duration_secs": 5.819,
+      "value": "and we also want to know"
+    },
+    {
+      "start_secs": 1681.679,
+      "duration_secs": 5.161,
+      "value": "where the programs spend most time"
+    },
+    {
+      "start_secs": 1684.799,
+      "duration_secs": 4.201,
+      "value": "and that means which functions are hot"
+    },
+    {
+      "start_secs": 1686.84,
+      "duration_secs": 6.0,
+      "value": "so these two questions are actually the"
+    },
+    {
+      "start_secs": 1689.0,
+      "duration_secs": 5.94,
+      "value": "same thing what means we spent a lot of"
+    },
+    {
+      "start_secs": 1692.84,
+      "duration_secs": 5.04,
+      "value": "time there"
+    },
+    {
+      "start_secs": 1694.94,
+      "duration_secs": 4.26,
+      "value": "so how we can do that"
+    },
+    {
+      "start_secs": 1697.88,
+      "duration_secs": 4.039,
+      "value": "the first"
+    },
+    {
+      "start_secs": 1699.2,
+      "duration_secs": 6.479,
+      "value": "it's very simple thing we just use"
+    },
+    {
+      "start_secs": 1701.919,
+      "duration_secs": 6.401,
+      "value": "standard time functions"
+    },
+    {
+      "start_secs": 1705.679,
+      "duration_secs": 5.181,
+      "value": "from rust for example"
+    },
+    {
+      "start_secs": 1708.32,
+      "duration_secs": 2.54,
+      "value": "here"
+    },
+    {
+      "start_secs": 1711.919,
+      "duration_secs": 6.36,
+      "value": "I check time in the beginning"
+    },
+    {
+      "start_secs": 1715.22,
+      "duration_secs": 5.339,
+      "value": "and then I run algorithm and then I see"
+    },
+    {
+      "start_secs": 1718.279,
+      "duration_secs": 5.101,
+      "value": "how much time is elapsed"
+    },
+    {
+      "start_secs": 1720.559,
+      "duration_secs": 5.581,
+      "value": "so that's it very simple"
+    },
+    {
+      "start_secs": 1723.38,
+      "duration_secs": 6.179,
+      "value": "so let's let's run it"
+    },
+    {
+      "start_secs": 1726.14,
+      "duration_secs": 5.7,
+      "value": "run it again so for example this one"
+    },
+    {
+      "start_secs": 1729.559,
+      "duration_secs": 6.6,
+      "value": "so it's it it's just just this"
+    },
+    {
+      "start_secs": 1731.84,
+      "duration_secs": 7.14,
+      "value": "information good result in this timing"
+    },
+    {
+      "start_secs": 1736.159,
+      "duration_secs": 6.0,
+      "value": "so in many cases that's enough"
+    },
+    {
+      "start_secs": 1738.98,
+      "duration_secs": 6.24,
+      "value": "so I just"
+    },
+    {
+      "start_secs": 1742.159,
+      "duration_secs": 6.421,
+      "value": "Mark the beginning Mark the end and see"
+    },
+    {
+      "start_secs": 1745.22,
+      "duration_secs": 6.3,
+      "value": "how much time was elapsed at this"
+    },
+    {
+      "start_secs": 1748.58,
+      "duration_secs": 6.06,
+      "value": "algorithm"
+    },
+    {
+      "start_secs": 1751.52,
+      "duration_secs": 5.519,
+      "value": "sometimes it should be a little bit more"
+    },
+    {
+      "start_secs": 1754.64,
+      "duration_secs": 5.46,
+      "value": "interesting for example we can do"
+    },
+    {
+      "start_secs": 1757.039,
+      "duration_secs": 5.341,
+      "value": "benchmarking and while doing"
+    },
+    {
+      "start_secs": 1760.1,
+      "duration_secs": 4.92,
+      "value": "benchmarking let me show you my"
+    },
+    {
+      "start_secs": 1762.38,
+      "duration_secs": 4.5,
+      "value": "benchmarks I use a Criterion Library"
+    },
+    {
+      "start_secs": 1765.02,
+      "duration_secs": 5.759,
+      "value": "here"
+    },
+    {
+      "start_secs": 1766.88,
+      "duration_secs": 6.899,
+      "value": "so I will run it benchmarking for"
+    },
+    {
+      "start_secs": 1770.779,
+      "duration_secs": 6.241,
+      "value": "example this breadth first search and"
+    },
+    {
+      "start_secs": 1773.779,
+      "duration_secs": 7.26,
+      "value": "what is actually going on here"
+    },
+    {
+      "start_secs": 1777.02,
+      "duration_secs": 6.899,
+      "value": "Criterion run our functions many times"
+    },
+    {
+      "start_secs": 1781.039,
+      "duration_secs": 5.221,
+      "value": "like 100 of times"
+    },
+    {
+      "start_secs": 1783.919,
+      "duration_secs": 4.26,
+      "value": "and then it computes some statistical"
+    },
+    {
+      "start_secs": 1786.26,
+      "duration_secs": 4.26,
+      "value": "characteristics"
+    },
+    {
+      "start_secs": 1788.179,
+      "duration_secs": 4.141,
+      "value": "for example here we can see this is"
+    },
+    {
+      "start_secs": 1790.52,
+      "duration_secs": 3.8,
+      "value": "average time"
+    },
+    {
+      "start_secs": 1792.32,
+      "duration_secs": 5.64,
+      "value": "we run it"
+    },
+    {
+      "start_secs": 1794.32,
+      "duration_secs": 6.52,
+      "value": "and so this is uh for different sizes"
+    },
+    {
+      "start_secs": 1797.96,
+      "duration_secs": 5.099,
+      "value": "like if n equals to five then we have"
+    },
+    {
+      "start_secs": 1800.84,
+      "duration_secs": 6.18,
+      "value": "this two microseconds"
+    },
+    {
+      "start_secs": 1803.059,
+      "duration_secs": 7.801,
+      "value": "and 4N equals two we have one"
+    },
+    {
+      "start_secs": 1807.02,
+      "duration_secs": 6.539,
+      "value": "millisecond and then 16 milliseconds for"
+    },
+    {
+      "start_secs": 1810.86,
+      "duration_secs": 5.699,
+      "value": "n equals to 12. so"
+    },
+    {
+      "start_secs": 1813.559,
+      "duration_secs": 5.161,
+      "value": "we can think about these stats so we"
+    },
+    {
+      "start_secs": 1816.559,
+      "duration_secs": 4.141,
+      "value": "just Benchmark them and we can remember"
+    },
+    {
+      "start_secs": 1818.72,
+      "duration_secs": 4.679,
+      "value": "and if we change something in our"
+    },
+    {
+      "start_secs": 1820.7,
+      "duration_secs": 5.04,
+      "value": "program we can Benchmark again and see"
+    },
+    {
+      "start_secs": 1823.399,
+      "duration_secs": 5.4,
+      "value": "what changed"
+    },
+    {
+      "start_secs": 1825.74,
+      "duration_secs": 6.24,
+      "value": "so this is profiling time"
+    },
+    {
+      "start_secs": 1828.799,
+      "duration_secs": 6.841,
+      "value": "so now we know that our functions take"
+    },
+    {
+      "start_secs": 1831.98,
+      "duration_secs": 7.74,
+      "value": "this amount of time for these sizes"
+    },
+    {
+      "start_secs": 1835.64,
+      "duration_secs": 5.88,
+      "value": "we can also do profiling with a special"
+    },
+    {
+      "start_secs": 1839.72,
+      "duration_secs": 4.74,
+      "value": "tool here"
+    },
+    {
+      "start_secs": 1841.52,
+      "duration_secs": 6.0,
+      "value": "so let me run"
+    },
+    {
+      "start_secs": 1844.46,
+      "duration_secs": 8.64,
+      "value": "profiler so I use the same run"
+    },
+    {
+      "start_secs": 1847.52,
+      "duration_secs": 11.279,
+      "value": "configuration but now no not that"
+    },
+    {
+      "start_secs": 1853.1,
+      "duration_secs": 7.799,
+      "value": "but now I will ask for profiler"
+    },
+    {
+      "start_secs": 1858.799,
+      "duration_secs": 5.461,
+      "value": "here is it"
+    },
+    {
+      "start_secs": 1860.899,
+      "duration_secs": 5.78,
+      "value": "and what we see here at so-called flame"
+    },
+    {
+      "start_secs": 1864.26,
+      "duration_secs": 2.419,
+      "value": "graph"
+    },
+    {
+      "start_secs": 1867.02,
+      "duration_secs": 4.259,
+      "value": "and this flame graph is extremely"
+    },
+    {
+      "start_secs": 1869.48,
+      "duration_secs": 4.679,
+      "value": "important and it's extremely important"
+    },
+    {
+      "start_secs": 1871.279,
+      "duration_secs": 4.62,
+      "value": "to understand what's going on so this is"
+    },
+    {
+      "start_secs": 1874.159,
+      "duration_secs": 5.941,
+      "value": "all our program"
+    },
+    {
+      "start_secs": 1875.899,
+      "duration_secs": 6.241,
+      "value": "like in time and this is generate"
+    },
+    {
+      "start_secs": 1880.1,
+      "duration_secs": 6.6,
+      "value": "parenthesis function"
+    },
+    {
+      "start_secs": 1882.14,
+      "duration_secs": 8.1,
+      "value": "like it takes 63 percent of the parent"
+    },
+    {
+      "start_secs": 1886.7,
+      "duration_secs": 5.599,
+      "value": "of this or most of our program so most"
+    },
+    {
+      "start_secs": 1890.24,
+      "duration_secs": 5.159,
+      "value": "of the time is spent at this function"
+    },
+    {
+      "start_secs": 1892.299,
+      "duration_secs": 7.721,
+      "value": "but if we look further"
+    },
+    {
+      "start_secs": 1895.399,
+      "duration_secs": 6.0,
+      "value": "we'll see that the problem is that most"
+    },
+    {
+      "start_secs": 1900.02,
+      "duration_secs": 4.1,
+      "value": "of the time"
+    },
+    {
+      "start_secs": 1901.399,
+      "duration_secs": 6.721,
+      "value": "is used for"
+    },
+    {
+      "start_secs": 1904.12,
+      "duration_secs": 7.539,
+      "value": "reserve for push operation and this is"
+    },
+    {
+      "start_secs": 1908.12,
+      "duration_secs": 4.799,
+      "value": "something that goes from vectors brushed"
+    },
+    {
+      "start_secs": 1911.659,
+      "duration_secs": 4.681,
+      "value": "vectors"
+    },
+    {
+      "start_secs": 1912.919,
+      "duration_secs": 6.24,
+      "value": "so why instead of generating parenthesis"
+    },
+    {
+      "start_secs": 1916.34,
+      "duration_secs": 6.559,
+      "value": "instead of solving our problem what we"
+    },
+    {
+      "start_secs": 1919.159,
+      "duration_secs": 7.861,
+      "value": "actually do is we uh"
+    },
+    {
+      "start_secs": 1922.899,
+      "duration_secs": 5.681,
+      "value": "resolve memory and then we also do some"
+    },
+    {
+      "start_secs": 1927.02,
+      "duration_secs": 5.399,
+      "value": "real occasions"
+    },
+    {
+      "start_secs": 1928.58,
+      "duration_secs": 8.76,
+      "value": "and then we allocate new memory"
+    },
+    {
+      "start_secs": 1932.419,
+      "duration_secs": 8.821,
+      "value": "so most of the time like 66 percent"
+    },
+    {
+      "start_secs": 1937.34,
+      "duration_secs": 6.42,
+      "value": "is taken for Vector operations and this"
+    },
+    {
+      "start_secs": 1941.24,
+      "duration_secs": 5.039,
+      "value": "is definitely a very bad thing"
+    },
+    {
+      "start_secs": 1943.76,
+      "duration_secs": 4.44,
+      "value": "so we don't want to spend time on"
+    },
+    {
+      "start_secs": 1946.279,
+      "duration_secs": 5.661,
+      "value": "Memorial location and if you remember"
+    },
+    {
+      "start_secs": 1948.2,
+      "duration_secs": 6.839,
+      "value": "all those steps and now in our"
+    },
+    {
+      "start_secs": 1951.94,
+      "duration_secs": 5.56,
+      "value": "instruments graph of Al Green graph"
+    },
+    {
+      "start_secs": 1955.039,
+      "duration_secs": 6.14,
+      "value": "that's exactly because of this Behavior"
+    },
+    {
+      "start_secs": 1957.5,
+      "duration_secs": 8.24,
+      "value": "so we look there we looked here"
+    },
+    {
+      "start_secs": 1961.179,
+      "duration_secs": 7.421,
+      "value": "and we see that we have a problem in our"
+    },
+    {
+      "start_secs": 1965.74,
+      "duration_secs": 5.919,
+      "value": "software in our code"
+    },
+    {
+      "start_secs": 1968.6,
+      "duration_secs": 6.959,
+      "value": "so we've done profiling and we see that"
+    },
+    {
+      "start_secs": 1971.659,
+      "duration_secs": 6.481,
+      "value": "a lot of time we spent on allocations"
+    },
+    {
+      "start_secs": 1975.559,
+      "duration_secs": 5.581,
+      "value": "and this is not a very good thing so we"
+    },
+    {
+      "start_secs": 1978.14,
+      "duration_secs": 7.139,
+      "value": "need to do something about that"
+    },
+    {
+      "start_secs": 1981.14,
+      "duration_secs": 6.2,
+      "value": "okay what can we do about that"
+    },
+    {
+      "start_secs": 1985.279,
+      "duration_secs": 5.4,
+      "value": "uh"
+    },
+    {
+      "start_secs": 1987.34,
+      "duration_secs": 5.559,
+      "value": "several very simple techniques I want to"
+    },
+    {
+      "start_secs": 1990.679,
+      "duration_secs": 4.1,
+      "value": "share with you like I'm sure everyone"
+    },
+    {
+      "start_secs": 1992.899,
+      "duration_secs": 5.041,
+      "value": "knows about them"
+    },
+    {
+      "start_secs": 1994.779,
+      "duration_secs": 7.301,
+      "value": "but they're so simple"
+    },
+    {
+      "start_secs": 1997.94,
+      "duration_secs": 6.599,
+      "value": "so sometimes we just don't do that but"
+    },
+    {
+      "start_secs": 2002.08,
+      "duration_secs": 4.86,
+      "value": "they're not only simple but they're also"
+    },
+    {
+      "start_secs": 2004.539,
+      "duration_secs": 6.0,
+      "value": "very powerful"
+    },
+    {
+      "start_secs": 2006.94,
+      "duration_secs": 6.719,
+      "value": "so uh I'm not going to take your time"
+    },
+    {
+      "start_secs": 2010.539,
+      "duration_secs": 5.64,
+      "value": "writing code so I will just show you"
+    },
+    {
+      "start_secs": 2013.659,
+      "duration_secs": 5.4,
+      "value": "what I already have"
+    },
+    {
+      "start_secs": 2016.179,
+      "duration_secs": 6.36,
+      "value": "actually we are here and I have several"
+    },
+    {
+      "start_secs": 2019.059,
+      "duration_secs": 5.521,
+      "value": "commits in another Branch just to see to"
+    },
+    {
+      "start_secs": 2022.539,
+      "duration_secs": 5.901,
+      "value": "show you what's going on"
+    },
+    {
+      "start_secs": 2024.58,
+      "duration_secs": 7.979,
+      "value": "so how to change that and our first"
+    },
+    {
+      "start_secs": 2028.44,
+      "duration_secs": 7.359,
+      "value": "practice is to reserve memory in advance"
+    },
+    {
+      "start_secs": 2032.559,
+      "duration_secs": 5.941,
+      "value": "so we use capacity for that so instead"
+    },
+    {
+      "start_secs": 2035.799,
+      "duration_secs": 5.401,
+      "value": "of allocating memory when it's needed we"
+    },
+    {
+      "start_secs": 2038.5,
+      "duration_secs": 4.98,
+      "value": "resolve it in advance and then we reduce"
+    },
+    {
+      "start_secs": 2041.2,
+      "duration_secs": 3.9,
+      "value": "the number of allocations"
+    },
+    {
+      "start_secs": 2043.48,
+      "duration_secs": 4.38,
+      "value": "for example"
+    },
+    {
+      "start_secs": 2045.1,
+      "duration_secs": 5.279,
+      "value": "let's look here"
+    },
+    {
+      "start_secs": 2047.86,
+      "duration_secs": 5.519,
+      "value": "oops not not this one"
+    },
+    {
+      "start_secs": 2050.379,
+      "duration_secs": 5.881,
+      "value": "I will I will need it here"
+    },
+    {
+      "start_secs": 2053.379,
+      "duration_secs": 5.881,
+      "value": "okay let's let's make and restructure"
+    },
+    {
+      "start_secs": 2056.26,
+      "duration_secs": 3.0,
+      "value": "these"
+    },
+    {
+      "start_secs": 2059.8,
+      "duration_secs": 3.44,
+      "value": "no no sorry"
+    },
+    {
+      "start_secs": 2064.06,
+      "duration_secs": 9.2,
+      "value": "I want to exit presentation mode"
+    },
+    {
+      "start_secs": 2068.26,
+      "duration_secs": 5.0,
+      "value": "to change and we will get this"
+    },
+    {
+      "start_secs": 2074.02,
+      "duration_secs": 5.879,
+      "value": "okay here this will be"
+    },
+    {
+      "start_secs": 2078.52,
+      "duration_secs": 4.379,
+      "value": "better"
+    },
+    {
+      "start_secs": 2079.899,
+      "duration_secs": 3.0,
+      "value": "right"
+    },
+    {
+      "start_secs": 2086.02,
+      "duration_secs": 5.76,
+      "value": "so fixing capacity"
+    },
+    {
+      "start_secs": 2088.78,
+      "duration_secs": 6.119,
+      "value": "but before we had"
+    },
+    {
+      "start_secs": 2091.78,
+      "duration_secs": 6.0,
+      "value": "creating just new string"
+    },
+    {
+      "start_secs": 2094.899,
+      "duration_secs": 6.72,
+      "value": "but in fact we know the exact size of"
+    },
+    {
+      "start_secs": 2097.78,
+      "duration_secs": 7.52,
+      "value": "the string like if it's 12 pairs of"
+    },
+    {
+      "start_secs": 2101.619,
+      "duration_secs": 7.381,
+      "value": "parenthesis then we will have 24"
+    },
+    {
+      "start_secs": 2105.3,
+      "duration_secs": 5.5,
+      "value": "symbols characters in our string so we"
+    },
+    {
+      "start_secs": 2109.0,
+      "duration_secs": 5.579,
+      "value": "know the capacity"
+    },
+    {
+      "start_secs": 2110.8,
+      "duration_secs": 6.42,
+      "value": "so instead of doing U we say string with"
+    },
+    {
+      "start_secs": 2114.579,
+      "duration_secs": 5.101,
+      "value": "capacity and we create string with"
+    },
+    {
+      "start_secs": 2117.22,
+      "duration_secs": 4.44,
+      "value": "exactly this capacity"
+    },
+    {
+      "start_secs": 2119.68,
+      "duration_secs": 6.0,
+      "value": "so just"
+    },
+    {
+      "start_secs": 2121.66,
+      "duration_secs": 6.179,
+      "value": "uh resolving memory in advance very"
+    },
+    {
+      "start_secs": 2125.68,
+      "duration_secs": 5.46,
+      "value": "simple technique but it's actually very"
+    },
+    {
+      "start_secs": 2127.839,
+      "duration_secs": 7.681,
+      "value": "powerful and if we do that there will be"
+    },
+    {
+      "start_secs": 2131.14,
+      "duration_secs": 7.02,
+      "value": "no excess memory usage inside strings"
+    },
+    {
+      "start_secs": 2135.52,
+      "duration_secs": 5.52,
+      "value": "and we have a lot of strings because you"
+    },
+    {
+      "start_secs": 2138.16,
+      "duration_secs": 5.24,
+      "value": "can imagine like hundreds of thousands"
+    },
+    {
+      "start_secs": 2141.04,
+      "duration_secs": 2.36,
+      "value": "of them"
+    },
+    {
+      "start_secs": 2143.68,
+      "duration_secs": 5.399,
+      "value": "then we can do the same with vectors"
+    },
+    {
+      "start_secs": 2147.28,
+      "duration_secs": 5.339,
+      "value": "like here"
+    },
+    {
+      "start_secs": 2149.079,
+      "duration_secs": 5.581,
+      "value": "I was creating just empty vector and I"
+    },
+    {
+      "start_secs": 2152.619,
+      "duration_secs": 5.161,
+      "value": "pushed stuff to that"
+    },
+    {
+      "start_secs": 2154.66,
+      "duration_secs": 5.52,
+      "value": "but it turns out that in our algorithm I"
+    },
+    {
+      "start_secs": 2157.78,
+      "duration_secs": 4.98,
+      "value": "can compute the number the future number"
+    },
+    {
+      "start_secs": 2160.18,
+      "duration_secs": 5.64,
+      "value": "of elements in that vector and if I"
+    },
+    {
+      "start_secs": 2162.76,
+      "duration_secs": 5.339,
+      "value": "computed them I can spend some time on"
+    },
+    {
+      "start_secs": 2165.82,
+      "duration_secs": 5.58,
+      "value": "Computing doesn't matter what I'm"
+    },
+    {
+      "start_secs": 2168.099,
+      "duration_secs": 5.881,
+      "value": "actually doing but I've tried I'm trying"
+    },
+    {
+      "start_secs": 2171.4,
+      "duration_secs": 5.04,
+      "value": "to predict the number of elements and"
+    },
+    {
+      "start_secs": 2173.98,
+      "duration_secs": 4.619,
+      "value": "then once again I use for Vector this"
+    },
+    {
+      "start_secs": 2176.44,
+      "duration_secs": 5.88,
+      "value": "width capacity file so I create a vector"
+    },
+    {
+      "start_secs": 2178.599,
+      "duration_secs": 8.101,
+      "value": "of the specified capacity and then"
+    },
+    {
+      "start_secs": 2182.32,
+      "duration_secs": 7.68,
+      "value": "A reduced number of allocations"
+    },
+    {
+      "start_secs": 2186.7,
+      "duration_secs": 4.74,
+      "value": "so this is first very powerful but very"
+    },
+    {
+      "start_secs": 2190.0,
+      "duration_secs": 3.98,
+      "value": "simple technique"
+    },
+    {
+      "start_secs": 2191.44,
+      "duration_secs": 2.54,
+      "value": "then"
+    },
+    {
+      "start_secs": 2194.02,
+      "duration_secs": 8.04,
+      "value": "we can do resizing instead of"
+    },
+    {
+      "start_secs": 2198.22,
+      "duration_secs": 5.639,
+      "value": "resolving capacity we can create new"
+    },
+    {
+      "start_secs": 2202.06,
+      "duration_secs": 4.26,
+      "value": "elements"
+    },
+    {
+      "start_secs": 2203.859,
+      "duration_secs": 5.521,
+      "value": "just in the very beginning"
+    },
+    {
+      "start_secs": 2206.32,
+      "duration_secs": 5.58,
+      "value": "those elements will be empty and then"
+    },
+    {
+      "start_secs": 2209.38,
+      "duration_secs": 4.739,
+      "value": "using mutation we can put the right"
+    },
+    {
+      "start_secs": 2211.9,
+      "duration_secs": 6.0,
+      "value": "values there"
+    },
+    {
+      "start_secs": 2214.119,
+      "duration_secs": 6.781,
+      "value": "so uh for example I'm doing in the next"
+    },
+    {
+      "start_secs": 2217.9,
+      "duration_secs": 6.24,
+      "value": "commit like precise in advance"
+    },
+    {
+      "start_secs": 2220.9,
+      "duration_secs": 4.92,
+      "value": "so how we can do that where are our"
+    },
+    {
+      "start_secs": 2224.14,
+      "duration_secs": 3.66,
+      "value": "changes"
+    },
+    {
+      "start_secs": 2225.82,
+      "duration_secs": 5.64,
+      "value": "like uh"
+    },
+    {
+      "start_secs": 2227.8,
+      "duration_secs": 6.779,
+      "value": "instead of having a vector now I have a"
+    },
+    {
+      "start_secs": 2231.46,
+      "duration_secs": 5.159,
+      "value": "mutability reader and"
+    },
+    {
+      "start_secs": 2234.579,
+      "duration_secs": 4.5,
+      "value": "uh"
+    },
+    {
+      "start_secs": 2236.619,
+      "duration_secs": 6.48,
+      "value": "instead of putting element to the vector"
+    },
+    {
+      "start_secs": 2239.079,
+      "duration_secs": 6.481,
+      "value": "I use that iterator to put things there"
+    },
+    {
+      "start_secs": 2243.099,
+      "duration_secs": 5.161,
+      "value": "so I've"
+    },
+    {
+      "start_secs": 2245.56,
+      "duration_secs": 4.98,
+      "value": "I've created a large vector"
+    },
+    {
+      "start_secs": 2248.26,
+      "duration_secs": 6.0,
+      "value": "and all the elements are already there"
+    },
+    {
+      "start_secs": 2250.54,
+      "duration_secs": 6.12,
+      "value": "so I'm not pushing those elements I have"
+    },
+    {
+      "start_secs": 2254.26,
+      "duration_secs": 7.8,
+      "value": "them already but those elements are"
+    },
+    {
+      "start_secs": 2256.66,
+      "duration_secs": 7.98,
+      "value": "empty so I just mutate their values for"
+    },
+    {
+      "start_secs": 2262.06,
+      "duration_secs": 6.539,
+      "value": "example here the result element is"
+    },
+    {
+      "start_secs": 2264.64,
+      "duration_secs": 7.38,
+      "value": "combination and I put a new line so I"
+    },
+    {
+      "start_secs": 2268.599,
+      "duration_secs": 5.401,
+      "value": "change line inside that combination"
+    },
+    {
+      "start_secs": 2272.02,
+      "duration_secs": 7.14,
+      "value": "so I'm the data"
+    },
+    {
+      "start_secs": 2274.0,
+      "duration_secs": 7.38,
+      "value": "okay and here I create new vector"
+    },
+    {
+      "start_secs": 2279.16,
+      "duration_secs": 6.12,
+      "value": "and that I resize"
+    },
+    {
+      "start_secs": 2281.38,
+      "duration_secs": 7.08,
+      "value": "and then I put these are my new elements"
+    },
+    {
+      "start_secs": 2285.28,
+      "duration_secs": 5.7,
+      "value": "they will be empty but the the size will"
+    },
+    {
+      "start_secs": 2288.46,
+      "duration_secs": 6.119,
+      "value": "be correct and then I will change those"
+    },
+    {
+      "start_secs": 2290.98,
+      "duration_secs": 6.72,
+      "value": "elements here is it"
+    },
+    {
+      "start_secs": 2294.579,
+      "duration_secs": 5.101,
+      "value": "uh my next technique is avoiding"
+    },
+    {
+      "start_secs": 2297.7,
+      "duration_secs": 5.28,
+      "value": "temporary structures"
+    },
+    {
+      "start_secs": 2299.68,
+      "duration_secs": 5.7,
+      "value": "it's not always possible to avoid"
+    },
+    {
+      "start_secs": 2302.98,
+      "duration_secs": 5.099,
+      "value": "because borrow checking can make it hard"
+    },
+    {
+      "start_secs": 2305.38,
+      "duration_secs": 5.04,
+      "value": "to do that but still when it's possible"
+    },
+    {
+      "start_secs": 2308.079,
+      "duration_secs": 5.221,
+      "value": "it's a good idea to do that"
+    },
+    {
+      "start_secs": 2310.42,
+      "duration_secs": 4.199,
+      "value": "so for example"
+    },
+    {
+      "start_secs": 2313.3,
+      "duration_secs": 6.299,
+      "value": "here"
+    },
+    {
+      "start_secs": 2314.619,
+      "duration_secs": 8.701,
+      "value": "uh before I had a new vector"
+    },
+    {
+      "start_secs": 2319.599,
+      "duration_secs": 7.141,
+      "value": "and now I just remove it I don't have a"
+    },
+    {
+      "start_secs": 2323.32,
+      "duration_secs": 6.66,
+      "value": "new Vector instead I use the same vector"
+    },
+    {
+      "start_secs": 2326.74,
+      "duration_secs": 7.98,
+      "value": "and I resize it to"
+    },
+    {
+      "start_secs": 2329.98,
+      "duration_secs": 8.94,
+      "value": "be able to to get all those new elements"
+    },
+    {
+      "start_secs": 2334.72,
+      "duration_secs": 7.26,
+      "value": "so I go over first part of this vector"
+    },
+    {
+      "start_secs": 2338.92,
+      "duration_secs": 4.439,
+      "value": "and I put elements in the second part of"
+    },
+    {
+      "start_secs": 2341.98,
+      "duration_secs": 5.0,
+      "value": "that vector"
+    },
+    {
+      "start_secs": 2343.359,
+      "duration_secs": 6.961,
+      "value": "so you know in Russ it's difficult to"
+    },
+    {
+      "start_secs": 2346.98,
+      "duration_secs": 6.34,
+      "value": "mutate several parts of vectors like"
+    },
+    {
+      "start_secs": 2350.32,
+      "duration_secs": 6.72,
+      "value": "beginning and end so it's not that easy"
+    },
+    {
+      "start_secs": 2353.32,
+      "duration_secs": 6.72,
+      "value": "so here I use very nice functions split"
+    },
+    {
+      "start_secs": 2357.04,
+      "duration_secs": 5.64,
+      "value": "at mute which gives you two parts of"
+    },
+    {
+      "start_secs": 2360.04,
+      "duration_secs": 5.819,
+      "value": "vector and both of them are mutable"
+    },
+    {
+      "start_secs": 2362.68,
+      "duration_secs": 5.939,
+      "value": "so you can just do the old part of the"
+    },
+    {
+      "start_secs": 2365.859,
+      "duration_secs": 6.601,
+      "value": "vector is first half new part of the"
+    },
+    {
+      "start_secs": 2368.619,
+      "duration_secs": 5.941,
+      "value": "vector is second part and you mutate"
+    },
+    {
+      "start_secs": 2372.46,
+      "duration_secs": 3.96,
+      "value": "something in the first part and then you"
+    },
+    {
+      "start_secs": 2374.56,
+      "duration_secs": 6.779,
+      "value": "can imitate something in the second part"
+    },
+    {
+      "start_secs": 2376.42,
+      "duration_secs": 6.78,
+      "value": "and during one Loop so very powerful and"
+    },
+    {
+      "start_secs": 2381.339,
+      "duration_secs": 3.901,
+      "value": "you don't need a new Vector anymore"
+    },
+    {
+      "start_secs": 2383.2,
+      "duration_secs": 5.1,
+      "value": "and once again you reduce number of"
+    },
+    {
+      "start_secs": 2385.24,
+      "duration_secs": 5.339,
+      "value": "allocations so really really very"
+    },
+    {
+      "start_secs": 2388.3,
+      "duration_secs": 3.779,
+      "value": "powerful"
+    },
+    {
+      "start_secs": 2390.579,
+      "duration_secs": 4.561,
+      "value": "and"
+    },
+    {
+      "start_secs": 2392.079,
+      "duration_secs": 6.0,
+      "value": "one other technique here like it turns"
+    },
+    {
+      "start_secs": 2395.14,
+      "duration_secs": 6.08,
+      "value": "out that we don't need all those uh"
+    },
+    {
+      "start_secs": 2398.079,
+      "duration_secs": 8.101,
+      "value": "memory reservations at all because we"
+    },
+    {
+      "start_secs": 2401.22,
+      "duration_secs": 9.7,
+      "value": "know exactly how much parentheses will"
+    },
+    {
+      "start_secs": 2406.18,
+      "duration_secs": 8.28,
+      "value": "be in this problem size because it's so"
+    },
+    {
+      "start_secs": 2410.92,
+      "duration_secs": 6.86,
+      "value": "called Catalan number and we can compute"
+    },
+    {
+      "start_secs": 2414.46,
+      "duration_secs": 6.0,
+      "value": "them so if you have this"
+    },
+    {
+      "start_secs": 2417.78,
+      "duration_secs": 4.96,
+      "value": "function it doesn't matter what is it"
+    },
+    {
+      "start_secs": 2420.46,
+      "duration_secs": 4.68,
+      "value": "but it gives us the size"
+    },
+    {
+      "start_secs": 2422.74,
+      "duration_secs": 6.06,
+      "value": "so instead of pushing instead of"
+    },
+    {
+      "start_secs": 2425.14,
+      "duration_secs": 6.66,
+      "value": "resizing we just say well total capacity"
+    },
+    {
+      "start_secs": 2428.8,
+      "duration_secs": 5.94,
+      "value": "will be this one"
+    },
+    {
+      "start_secs": 2431.8,
+      "duration_secs": 4.98,
+      "value": "and then there will be no allocations at"
+    },
+    {
+      "start_secs": 2434.74,
+      "duration_secs": 4.98,
+      "value": "all"
+    },
+    {
+      "start_secs": 2436.78,
+      "duration_secs": 6.299,
+      "value": "and of course whenever we do these"
+    },
+    {
+      "start_secs": 2439.72,
+      "duration_secs": 5.94,
+      "value": "changes we have to check if everything"
+    },
+    {
+      "start_secs": 2443.079,
+      "duration_secs": 6.241,
+      "value": "is all right so whenever we do all those"
+    },
+    {
+      "start_secs": 2445.66,
+      "duration_secs": 9.08,
+      "value": "uh optimization techniques we have to"
+    },
+    {
+      "start_secs": 2449.32,
+      "duration_secs": 7.56,
+      "value": "test so for now let me check out this"
+    },
+    {
+      "start_secs": 2454.74,
+      "duration_secs": 5.76,
+      "value": "optimized version"
+    },
+    {
+      "start_secs": 2456.88,
+      "duration_secs": 3.62,
+      "value": "okay here we are"
+    },
+    {
+      "start_secs": 2461.5,
+      "duration_secs": 5.94,
+      "value": "and then of course I'll write"
+    },
+    {
+      "start_secs": 2464.92,
+      "duration_secs": 4.1,
+      "value": "around tests"
+    },
+    {
+      "start_secs": 2467.44,
+      "duration_secs": 4.28,
+      "value": "so this is"
+    },
+    {
+      "start_secs": 2469.02,
+      "duration_secs": 7.079,
+      "value": "optimized version okay"
+    },
+    {
+      "start_secs": 2471.72,
+      "duration_secs": 4.379,
+      "value": "and now let me"
+    },
+    {
+      "start_secs": 2477.94,
+      "duration_secs": 6.24,
+      "value": "see what's going on in our uh"
+    },
+    {
+      "start_secs": 2482.22,
+      "duration_secs": 4.96,
+      "value": "instruments"
+    },
+    {
+      "start_secs": 2484.18,
+      "duration_secs": 5.939,
+      "value": "so what's going on with our memory"
+    },
+    {
+      "start_secs": 2487.18,
+      "duration_secs": 5.78,
+      "value": "okay we're on this program"
+    },
+    {
+      "start_secs": 2490.119,
+      "duration_secs": 2.841,
+      "value": "foreign"
+    },
+    {
+      "start_secs": 2493.06,
+      "duration_secs": 3.0,
+      "value": "okay"
+    },
+    {
+      "start_secs": 2496.24,
+      "duration_secs": 3.08,
+      "value": "and this is it"
+    },
+    {
+      "start_secs": 2500.619,
+      "duration_secs": 6.381,
+      "value": "okay do you remember all those steps"
+    },
+    {
+      "start_secs": 2503.32,
+      "duration_secs": 3.68,
+      "value": "that we had before"
+    },
+    {
+      "start_secs": 2507.099,
+      "duration_secs": 4.321,
+      "value": "and now there are almost known steps"
+    },
+    {
+      "start_secs": 2510.4,
+      "duration_secs": 4.26,
+      "value": "like"
+    },
+    {
+      "start_secs": 2511.42,
+      "duration_secs": 7.02,
+      "value": "we reserve as much memory as possible"
+    },
+    {
+      "start_secs": 2514.66,
+      "duration_secs": 7.74,
+      "value": "we've reduced allocation and this"
+    },
+    {
+      "start_secs": 2518.44,
+      "duration_secs": 7.2,
+      "value": "program behavior is much much better"
+    },
+    {
+      "start_secs": 2522.4,
+      "duration_secs": 6.48,
+      "value": "so real difference"
+    },
+    {
+      "start_secs": 2525.64,
+      "duration_secs": 7.8,
+      "value": "okay and if we of course we can we can"
+    },
+    {
+      "start_secs": 2528.88,
+      "duration_secs": 8.4,
+      "value": "also run our profile"
+    },
+    {
+      "start_secs": 2533.44,
+      "duration_secs": 9.38,
+      "value": "okay from the first"
+    },
+    {
+      "start_secs": 2537.28,
+      "duration_secs": 5.54,
+      "value": "with profiler and let's see"
+    },
+    {
+      "start_secs": 2544.18,
+      "duration_secs": 3.36,
+      "value": "this is our generate parenthesis"
+    },
+    {
+      "start_secs": 2546.4,
+      "duration_secs": 3.9,
+      "value": "function"
+    },
+    {
+      "start_secs": 2547.54,
+      "duration_secs": 5.64,
+      "value": "and before we had a lot of memory"
+    },
+    {
+      "start_secs": 2550.3,
+      "duration_secs": 3.9,
+      "value": "reservation stuff here and now we don't"
+    },
+    {
+      "start_secs": 2553.18,
+      "duration_secs": 4.52,
+      "value": "have it"
+    },
+    {
+      "start_secs": 2554.2,
+      "duration_secs": 3.5,
+      "value": "we've just removed it"
+    },
+    {
+      "start_secs": 2557.92,
+      "duration_secs": 4.5,
+      "value": "okay what about timing is it any better"
+    },
+    {
+      "start_secs": 2561.16,
+      "duration_secs": 3.959,
+      "value": "than before"
+    },
+    {
+      "start_secs": 2562.42,
+      "duration_secs": 7.74,
+      "value": "maybe it's not better"
+    },
+    {
+      "start_secs": 2565.119,
+      "duration_secs": 8.22,
+      "value": "let's let's try our benchmarks"
+    },
+    {
+      "start_secs": 2570.16,
+      "duration_secs": 6.3,
+      "value": "here are some benchmarks we can pile it"
+    },
+    {
+      "start_secs": 2573.339,
+      "duration_secs": 6.0,
+      "value": "again we run benchmarks and Criterion"
+    },
+    {
+      "start_secs": 2576.46,
+      "duration_secs": 5.399,
+      "value": "library is so powerful it shows us how"
+    },
+    {
+      "start_secs": 2579.339,
+      "duration_secs": 5.161,
+      "value": "much uh better our program our"
+    },
+    {
+      "start_secs": 2581.859,
+      "duration_secs": 9.24,
+      "value": "implementation is"
+    },
+    {
+      "start_secs": 2584.5,
+      "duration_secs": 9.96,
+      "value": "okay now it's improved 55 better it's"
+    },
+    {
+      "start_secs": 2591.099,
+      "duration_secs": 6.121,
+      "value": "for smaller size and for another size"
+    },
+    {
+      "start_secs": 2594.46,
+      "duration_secs": 4.859,
+      "value": "also improved"
+    },
+    {
+      "start_secs": 2597.22,
+      "duration_secs": 6.0,
+      "value": "uh"
+    },
+    {
+      "start_secs": 2599.319,
+      "duration_secs": 6.481,
+      "value": "and uh for for the last time I I think"
+    },
+    {
+      "start_secs": 2603.22,
+      "duration_secs": 5.46,
+      "value": "it will be improved to yes yes so"
+    },
+    {
+      "start_secs": 2605.8,
+      "duration_secs": 4.86,
+      "value": "everything is improved so Criterion just"
+    },
+    {
+      "start_secs": 2608.68,
+      "duration_secs": 3.48,
+      "value": "is able to compare it with the previous"
+    },
+    {
+      "start_secs": 2610.66,
+      "duration_secs": 4.8,
+      "value": "ones"
+    },
+    {
+      "start_secs": 2612.16,
+      "duration_secs": 5.88,
+      "value": "so you see that I have showed you very"
+    },
+    {
+      "start_secs": 2615.46,
+      "duration_secs": 5.82,
+      "value": "simple things very traditional rust"
+    },
+    {
+      "start_secs": 2618.04,
+      "duration_secs": 4.38,
+      "value": "things but if you do profiling at early"
+    },
+    {
+      "start_secs": 2621.28,
+      "duration_secs": 3.72,
+      "value": "stages"
+    },
+    {
+      "start_secs": 2622.42,
+      "duration_secs": 7.399,
+      "value": "you just see all that stuff"
+    },
+    {
+      "start_secs": 2625.0,
+      "duration_secs": 4.819,
+      "value": "and it's really really very powerful"
+    },
+    {
+      "start_secs": 2631.54,
+      "duration_secs": 7.62,
+      "value": "well of course it's still hot"
+    },
+    {
+      "start_secs": 2635.8,
+      "duration_secs": 6.26,
+      "value": "so I think I don't need"
+    },
+    {
+      "start_secs": 2639.16,
+      "duration_secs": 2.9,
+      "value": "all those"
+    },
+    {
+      "start_secs": 2642.64,
+      "duration_secs": 3.679,
+      "value": "windows so"
+    },
+    {
+      "start_secs": 2647.02,
+      "duration_secs": 3.14,
+      "value": "get back to"
+    },
+    {
+      "start_secs": 2650.98,
+      "duration_secs": 6.78,
+      "value": "my slides"
+    },
+    {
+      "start_secs": 2652.78,
+      "duration_secs": 7.1,
+      "value": "so it's still it's hard but uh"
+    },
+    {
+      "start_secs": 2657.76,
+      "duration_secs": 5.46,
+      "value": "there are many tools"
+    },
+    {
+      "start_secs": 2659.88,
+      "duration_secs": 5.92,
+      "value": "and I've showed you about Green family"
+    },
+    {
+      "start_secs": 2663.22,
+      "duration_secs": 6.06,
+      "value": "I've showed you instruments if you are"
+    },
+    {
+      "start_secs": 2665.8,
+      "duration_secs": 6.779,
+      "value": "interested you can look at this Library"
+    },
+    {
+      "start_secs": 2669.28,
+      "duration_secs": 6.66,
+      "value": "uh the head arrest which was designed"
+    },
+    {
+      "start_secs": 2672.579,
+      "duration_secs": 6.061,
+      "value": "specifically for rust and it allows you"
+    },
+    {
+      "start_secs": 2675.94,
+      "duration_secs": 4.86,
+      "value": "to introduce profiler into your program"
+    },
+    {
+      "start_secs": 2678.64,
+      "duration_secs": 4.74,
+      "value": "you just add several lines so then you"
+    },
+    {
+      "start_secs": 2680.8,
+      "duration_secs": 6.059,
+      "value": "have a lot of possibilities"
+    },
+    {
+      "start_secs": 2683.38,
+      "duration_secs": 5.76,
+      "value": "it's also very very powerful"
+    },
+    {
+      "start_secs": 2686.859,
+      "duration_secs": 5.281,
+      "value": "so it's difficult to know all those"
+    },
+    {
+      "start_secs": 2689.14,
+      "duration_secs": 6.9,
+      "value": "tools but it's a good idea to at least"
+    },
+    {
+      "start_secs": 2692.14,
+      "duration_secs": 6.719,
+      "value": "to get familiar with some of them"
+    },
+    {
+      "start_secs": 2696.04,
+      "duration_secs": 5.94,
+      "value": "uh if you use Linux tools they are"
+    },
+    {
+      "start_secs": 2698.859,
+      "duration_secs": 5.281,
+      "value": "mostly terminal based so you just run"
+    },
+    {
+      "start_secs": 2701.98,
+      "duration_secs": 4.08,
+      "value": "them and you see all those huge files"
+    },
+    {
+      "start_secs": 2704.14,
+      "duration_secs": 5.219,
+      "value": "there are visualizers you can look at"
+    },
+    {
+      "start_secs": 2706.06,
+      "duration_secs": 5.22,
+      "value": "them but one important thing is that you"
+    },
+    {
+      "start_secs": 2709.359,
+      "duration_secs": 3.541,
+      "value": "don't have to understand everything in"
+    },
+    {
+      "start_secs": 2711.28,
+      "duration_secs": 4.799,
+      "value": "those those files"
+    },
+    {
+      "start_secs": 2712.9,
+      "duration_secs": 6.36,
+      "value": "or just not necessary instead you just"
+    },
+    {
+      "start_secs": 2716.079,
+      "duration_secs": 7.881,
+      "value": "try to look at important parts"
+    },
+    {
+      "start_secs": 2719.26,
+      "duration_secs": 4.7,
+      "value": "and that's enough for many cases"
+    },
+    {
+      "start_secs": 2724.119,
+      "duration_secs": 4.861,
+      "value": "if you look at tutorials when usually"
+    },
+    {
+      "start_secs": 2726.579,
+      "duration_secs": 3.601,
+      "value": "they focus on hard things"
+    },
+    {
+      "start_secs": 2728.98,
+      "duration_secs": 3.96,
+      "value": "but"
+    },
+    {
+      "start_secs": 2730.18,
+      "duration_secs": 4.26,
+      "value": "it's not necessary to know all those"
+    },
+    {
+      "start_secs": 2732.94,
+      "duration_secs": 4.98,
+      "value": "hard things"
+    },
+    {
+      "start_secs": 2734.44,
+      "duration_secs": 4.74,
+      "value": "in fact in most cases you don't need"
+    },
+    {
+      "start_secs": 2737.92,
+      "duration_secs": 5.52,
+      "value": "that"
+    },
+    {
+      "start_secs": 2739.18,
+      "duration_secs": 7.2,
+      "value": "so I've showed you a couple of graphs"
+    },
+    {
+      "start_secs": 2743.44,
+      "duration_secs": 4.26,
+      "value": "and then it's clearly visible that we"
+    },
+    {
+      "start_secs": 2746.38,
+      "duration_secs": 4.68,
+      "value": "have a problem"
+    },
+    {
+      "start_secs": 2747.7,
+      "duration_secs": 4.74,
+      "value": "and then we've applied some simple"
+    },
+    {
+      "start_secs": 2751.06,
+      "duration_secs": 3.84,
+      "value": "techniques"
+    },
+    {
+      "start_secs": 2752.44,
+      "duration_secs": 5.46,
+      "value": "and now it's clearly visible that we"
+    },
+    {
+      "start_secs": 2754.9,
+      "duration_secs": 6.9,
+      "value": "don't have that problem anymore"
+    },
+    {
+      "start_secs": 2757.9,
+      "duration_secs": 6.26,
+      "value": "so you don't need to apply very"
+    },
+    {
+      "start_secs": 2761.8,
+      "duration_secs": 5.22,
+      "value": "sophisticated instruments very"
+    },
+    {
+      "start_secs": 2764.16,
+      "duration_secs": 4.54,
+      "value": "sophisticated techniques techniques to"
+    },
+    {
+      "start_secs": 2767.02,
+      "duration_secs": 3.0,
+      "value": "make your programs better"
+    },
+    {
+      "start_secs": 2768.7,
+      "duration_secs": 6.18,
+      "value": "so that's"
+    },
+    {
+      "start_secs": 2770.02,
+      "duration_secs": 8.22,
+      "value": "important idea as usual for doing 80"
+    },
+    {
+      "start_secs": 2774.88,
+      "duration_secs": 5.939,
+      "value": "things you just need to master those"
+    },
+    {
+      "start_secs": 2778.24,
+      "duration_secs": 4.28,
+      "value": "instruments at twenty percent no"
+    },
+    {
+      "start_secs": 2780.819,
+      "duration_secs": 3.721,
+      "value": "additional"
+    },
+    {
+      "start_secs": 2782.52,
+      "duration_secs": 3.46,
+      "value": "Pareto rules"
+    },
+    {
+      "start_secs": 2784.54,
+      "duration_secs": 5.16,
+      "value": "so"
+    },
+    {
+      "start_secs": 2785.98,
+      "duration_secs": 8.46,
+      "value": "it's hard but you don't need all that"
+    },
+    {
+      "start_secs": 2789.7,
+      "duration_secs": 7.56,
+      "value": "so I want you to start profiling as well"
+    },
+    {
+      "start_secs": 2794.44,
+      "duration_secs": 6.179,
+      "value": "as possible don't postpone it don't"
+    },
+    {
+      "start_secs": 2797.26,
+      "duration_secs": 5.7,
+      "value": "delegate it to other professionals"
+    },
+    {
+      "start_secs": 2800.619,
+      "duration_secs": 3.841,
+      "value": "because it's easy"
+    },
+    {
+      "start_secs": 2802.96,
+      "duration_secs": 6.2,
+      "value": "and"
+    },
+    {
+      "start_secs": 2804.46,
+      "duration_secs": 6.3,
+      "value": "it allows you to write better programs"
+    },
+    {
+      "start_secs": 2809.16,
+      "duration_secs": 5.62,
+      "value": "and"
+    },
+    {
+      "start_secs": 2810.76,
+      "duration_secs": 7.559,
+      "value": "that's it for this talk so you can"
+    },
+    {
+      "start_secs": 2814.78,
+      "duration_secs": 7.559,
+      "value": "download these slides here is a link and"
+    },
+    {
+      "start_secs": 2818.319,
+      "duration_secs": 8.061,
+      "value": "feel free to talk to me in Twitter and"
+    },
+    {
+      "start_secs": 2822.339,
+      "duration_secs": 4.041,
+      "value": "whatever and thank you very much"
+    }
+  ]
+}

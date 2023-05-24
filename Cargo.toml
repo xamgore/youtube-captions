@@ -5,4 +5,33 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+json3 = []
+srv1 = ["quick-xml"]
+srv2 = ["quick-xml"]
+srv3 = ["quick-xml", "serde_repr"]
+ttml = ["quick-xml", "serde_repr"]
+
 [dependencies]
+itertools = "0.10"
+language-tags = "0.3.2"
+lazy_static = "1.4"
+quick-xml = { version = "0.28", features = ["serialize", "escape-html"], optional = true }
+regex = "1.8"
+reqwest = "0.11"
+serde = { version = "1.0", features = ["derive", "rc"] }
+serde_json = "1.0"
+serde_repr = { version = "0.1", optional = true }
+thiserror = "1.0"
+tokio = { version = "1.8", features = ["rt-multi-thread", "macros"] }
+tracing = "0.1"
+
+[dev-dependencies]
+insta = { version = "1.29", features = ["json"] }
+serde_path_to_error = "0.1.11"
+
+[profile.dev.package.insta]
+opt-level = 3
+
+[profile.dev.package.similar]
+opt-level = 3
