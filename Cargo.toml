@@ -1,7 +1,14 @@
 [package]
 name = "youtube-captions"
 version = "0.1.0"
+author = "strebz"
 edition = "2021"
+description = "Allows you to get the transcript/subtitles for a given YouTube video. It also works for automatically generated subtitles and it does not require a headless browser, like other selenium based solutions do!"
+license = "MIT"
+repository = "https://github.com/xamgore/youtube-captions"
+keywords = ["youtube", "captions", "transcript", "subtitles"]
+categories = ["api-bindings", "encoding"]
+include = ["src", "!src/**/*.snap"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
